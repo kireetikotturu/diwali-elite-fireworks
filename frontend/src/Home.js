@@ -18,7 +18,7 @@ function Home() {
     setSending(true);
 
     try {
-      await fetch("http://localhost:5000/api/coupons", {
+      await fetch(`${process.env.REACT_APP_API_URL}/api/coupons`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone }),
