@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background-color: #f8e7a6;
+}
+/* Hide scrollbars but allow scrolling */
+
+/* For Chrome, Safari, Opera */
+body::-webkit-scrollbar, html::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+  display: none;
+}
+
+/* For Firefox */
+body, html {
+  scrollbar-width: none;
+}
+
+/* For IE and Edge */
+body, html {
+  -ms-overflow-style: none;
+}
+
+.main-content {
+  padding-top: 70px; /* Must be >= Navbar min-height */
+}
+.main-content {
+  padding-top: 70px; /* Prevents overlap with fixed navbar */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  color: #d97706;
+  text-shadow: 2px 2px 8px #ffd700;
+  margin-top: 40px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #3c2a12;
+}

@@ -1,0 +1,87 @@
+.whatsapp-float {
+    position: fixed;
+    right: 32px;
+    bottom: 160px;
+    z-index: 99;
+    width: 70px;
+    height: 70px;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    animation: whatsapp-fade-in 0.7s ease;
+  }
+  .whatsapp-float-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 14px #25d36633;
+    transition: box-shadow 0.19s, transform 0.18s;
+    animation: whatsapp-pulse 2.5s infinite;
+  }
+  .whatsapp-float:hover .whatsapp-float-logo,
+  .whatsapp-float:focus .whatsapp-float-logo {
+    box-shadow: 0 10px 36px #25d36677, 0 2px 8px #6342a777;
+    transform: scale(1.11);
+  }
+  
+  .whatsapp-float-tooltip {
+    position: absolute;
+    right: 80px;
+    bottom: 10px;
+    background: #fffbe7;
+    color: #6342a7;
+    font-size: 1.08rem;
+    font-weight: 600;
+    padding: 9px 22px 9px 18px;
+    border-radius: 8px;
+    box-shadow: 0 6px 24px #e040fb11;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s, right 0.2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .whatsapp-float:hover .whatsapp-float-tooltip,
+  .whatsapp-float:focus .whatsapp-float-tooltip {
+    opacity: 1;
+    right: 120px;
+  }
+  
+  @keyframes whatsapp-fade-in {
+    0% { opacity: 0; transform: scale(0.7);}
+    65% { opacity: 1; transform: scale(1.15);}
+    85% { opacity: 1; transform: scale(0.98);}
+    100% { opacity: 1; transform: scale(1);}
+  }
+  @keyframes whatsapp-pulse {
+    0% { box-shadow: 0 4px 14px #25d36633;}
+    50% { box-shadow: 0 14px 36px #25d36699;}
+    100% { box-shadow: 0 4px 14px #25d36633;}
+  }
+  
+  @media (max-width: 700px) {
+    .whatsapp-float {
+      right: 20px;
+      bottom: 40px;
+      width: 56px;
+      height: 56px;
+    }
+    .whatsapp-float-logo {
+      width: 44px;
+      height: 44px;
+    }
+    .whatsapp-float-tooltip {
+      font-size: 0.93rem;
+      right: 54px;
+      bottom: 6px;
+      padding: 5px 14px 5px 10px;
+    }
+  }
