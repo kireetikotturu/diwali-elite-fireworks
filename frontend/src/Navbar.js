@@ -17,14 +17,31 @@ function Navbar({ cart }) {
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo" onClick={goHome}>
-        <img src="/diwali-elite-fireworks.png" alt="Diwali Elite Fireworks" className="logo-img" />
-        <span className="logo-text">Diwali Elite Fireworks</span>
+      <div className="navbar-logo" onClick={goHome} style={{ cursor: "pointer" }}>
+        {/* Animated Logo Video */}
+        <video
+          src="/logofinal.mp4"
+          autoPlay
+          muted
+          playsInline
+          className="logo-video"
+        />
+        {/* <span className="logo-text">Diwali Elite Fireworks</span> */}
       </div>
+
       <div className="navbar-icons">
-        <Link to="/cart" className="navbar-cart-link" aria-label="Cart" onClick={handleNavClick}>
+        <Link
+          to="/cart"
+          className="navbar-cart-link"
+          aria-label="Cart"
+          onClick={handleNavClick}
+        >
           <span className="navbar-cart-icon-wrap">
-            <img src="/shopping-cart-icon.svg" alt="Cart" className="navbar-cart-icon" />
+            <img
+              src="/shopping-cart-icon.svg"
+              alt="Cart"
+              className="navbar-cart-icon"
+            />
             {cartCount > 0 && (
               <span className="navbar-cart-count">{cartCount}</span>
             )}
@@ -40,6 +57,7 @@ function Navbar({ cart }) {
           <span className="bar"></span>
         </button>
       </div>
+
       <ul className={`navbar-links ${menuOpen ? "open" : ""}`}>
         <li className={location.pathname === "/" ? "active" : ""}>
           <Link to="/" onClick={handleNavClick}>Home</Link>
@@ -57,6 +75,7 @@ function Navbar({ cart }) {
           <Link to="/contact" onClick={handleNavClick}>Contact Us</Link>
         </li>
       </ul>
+
       {menuOpen && <div className="navbar-backdrop" onClick={handleNavClick}></div>}
     </nav>
   );

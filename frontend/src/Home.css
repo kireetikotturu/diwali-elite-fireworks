@@ -5,6 +5,118 @@
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   }
   
+  /* --- NOTICE BAR (SCROLLING) --- */
+  .notice-bar {
+    width: 100%;
+    background: yellow;
+    color: #000000;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 2px solid #ffd700;
+    box-shadow: 0 4px 16px #ffd70014;
+    font-size: 1.07rem;
+    z-index: 99;
+  }
+  
+  .notice-marquee {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+  }
+  
+  .notice-marquee span {
+    display: inline-block;
+    padding-left: 100vw;
+    animation: marquee-scroll 14s linear infinite;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+  }
+  
+  @keyframes marquee-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100vw); }
+  }
+  
+  /* --- SLIDING VIDEO BANNER SECTION (FLUSH, NO BORDER RADIUS) --- */
+  .sliding-banner-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .banner-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 320px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .banner-slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 320px;
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+  }
+  
+  .banner-slide.active {
+    opacity: 1;
+    z-index: 2;
+    pointer-events: auto;
+  }
+  
+  .banner-slide.fade-in {
+    animation: bannerFadeIn 0.5s;
+    opacity: 1;
+  }
+  
+  .banner-slide.fade-out {
+    animation: bannerFadeOut 0.5s;
+    opacity: 0;
+  }
+  
+  @keyframes bannerFadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes bannerFadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  .banner-video {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    max-height: 700px;
+    border-radius: 0;
+    object-fit: cover;
+    box-shadow: none;
+    background: #000;
+    margin: 0 auto;
+    display: block;
+    z-index: 1;
+  }
+  
   /* --- HERO SECTION --- */
   .hero {
     position: relative;
@@ -265,21 +377,49 @@
   }
   
   /* --- Responsive --- */
-  @media (max-width: 900px) {
-    .hero {
+  @media (max-width: 1300px) {
+    .sliding-banner-section,
+    .banner-carousel,
+    .banner-slide,
+    .banner-video {
       max-width: 99vw;
-      margin-left: 0.1rem;
-      margin-right: 0.1rem;
     }
-    .festive-banners {
-      flex-direction: column;
-      gap: 0.7rem;
-      align-items: center;
-      margin-top: 1.1rem;
+    .notice-bar {
+      font-size: 1rem;
     }
   }
-  
+  @media (max-width: 900px) {
+    .banner-carousel, .banner-slide {
+      min-height: 160px;
+      height: 160px;
+    }
+    .banner-video {
+      max-width: 99vw;
+      max-height: 250px;
+      min-height: 160px;
+    }
+    .sliding-banner-section {
+      margin-top: 0;
+    }
+    .notice-bar {
+      min-height: 32px;
+      font-size: 0.97rem;
+    }
+  }
   @media (max-width: 700px) {
+    .banner-carousel, .banner-slide {
+      min-height: 90px;
+      height: 90px;
+    }
+    .banner-video {
+      max-width: 98vw;
+      max-height: 100px;
+      min-height: 90px;
+    }
+    .notice-bar {
+      font-size: 0.89rem;
+      min-height: 26px;
+    }
     .home-root {
       padding-bottom: 0.7rem;
     }

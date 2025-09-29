@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti";
 import "./Home.css";
@@ -11,6 +11,25 @@ function Home() {
   const navigate = useNavigate();
 
   const couponCode = "DIWALI0690";
+
+  // --- Carousel state for MP4 banners ---
+  const [currentBanner, setCurrentBanner] = useState(0);
+  const [fade, setFade] = useState(true);
+  const banners = [
+    { src: "/banner1.mp4", alt: "Diwali Banner 1" },
+    { src: "/banner2.mp4", alt: "Diwali Banner 2" },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setCurrentBanner((prev) => (prev + 1) % banners.length);
+        setFade(true);
+      }, 480);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [banners.length]);
 
   const handleCouponSubmit = async (e) => {
     e.preventDefault();
@@ -37,15 +56,10 @@ function Home() {
     });
   };
 
-  // Shop Now handler: go to shop categories section
-  const handleShopNow = (e) => {
-    e.preventDefault();
-    navigate("/shop");
-    // If your categories section uses another route like "/shop/categories", use that instead:
-    // navigate("/shop/categories");
+  const handleShopNow = (link) => {
+    navigate(link);
   };
 
-  // Copy coupon code
   const handleCopyCoupon = () => {
     navigator.clipboard.writeText(couponCode);
     setCopySuccess(true);
@@ -54,6 +68,45 @@ function Home() {
 
   return (
     <div className="home-root">
+      {/* --- SCROLLING NOTICE BAR --- */}
+      <div className="notice-bar">
+        <div className="notice-marquee">
+          <span>
+            Buy orders in bulk to get more beneficial discounts! Prices vary by time, so order immediately if you see a hot deal...
+          </span>
+        </div>
+      </div>
+
+      {/* --- SLIDING VIDEO BANNER SECTION --- */}
+      <section className="sliding-banner-section">
+        <div className="banner-carousel">
+          {banners.map((banner, idx) => (
+            <div
+              key={banner.src}
+              className={
+                "banner-slide" +
+                (currentBanner === idx ? " active" : "") +
+                (fade && currentBanner === idx ? " fade-in" : " fade-out")
+              }
+              style={{
+                display: currentBanner === idx ? "block" : "none",
+              }}
+            >
+              <video
+                src={banner.src}
+                alt={banner.alt}
+                className="banner-video"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- HERO SECTION --- */}
       <section className="hero">
         <img src="/Diwali Elite Fireworks.svg" alt="Diwali Elite Fireworks Logo" className="hero-logo" />
         <div className="hero-content">
@@ -64,7 +117,7 @@ function Home() {
             A classic way to light up your festival—premium crackers, home delivery, special offers.
           </p>
           <div className="hero-btns">
-            <button className="cta-btn" onClick={handleShopNow}>Shop Now</button>
+            <button className="cta-btn" onClick={() => handleShopNow("/shop")}>Shop Now</button>
             <a href="/offers" className="cta-btn offers-btn">View Offers</a>
           </div>
           <form className="coupon-form" onSubmit={handleCouponSubmit}>
@@ -121,6 +174,7 @@ function Home() {
         </div>
       </section>
 
+      {/* --- FESTIVE BANNERS SECTION --- */}
       <section className="festive-banners">
         <div className="banner-card">
           <h3>Limited Time Offer</h3>
