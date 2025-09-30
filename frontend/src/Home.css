@@ -33,14 +33,14 @@
 .notice-marquee span {
   display: inline-block;
   padding-left: 100vw;
-  animation: marquee-scroll 16s linear infinite;
+  animation: marquee-scroll 15s linear infinite;
   font-weight: 600;
   letter-spacing: 0.7px;
 }
 
 @keyframes marquee-scroll {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-100vw); }
+  100% { transform: translateX(-100%); }
 }
 
 /* --- SLIDING VIDEO BANNER SECTION (FULL WIDTH, NO GAP, RESPONSIVE HEIGHT) --- */

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti";
 import "./Home.css";
@@ -15,10 +15,18 @@ function Home() {
   // --- Carousel state for MP4 banners ---
   const [currentBanner, setCurrentBanner] = useState(0);
   const [fade, setFade] = useState(true);
+
+  // Added banner3.mp4 and banner4.mp4
   const banners = [
     { src: "/banner1.mp4", alt: "Diwali Banner 1" },
     { src: "/banner2.mp4", alt: "Diwali Banner 2" },
+    { src: "/banner3.mp4", alt: "Diwali Banner 3" },
+    { src: "/banner4.mp4", alt: "Diwali Banner 4" },
   ];
+
+  // Touch/swipe support
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,6 +38,41 @@ function Home() {
     }, 5000);
     return () => clearInterval(interval);
   }, [banners.length]);
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = null;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current !== null && touchEndX.current !== null) {
+      const diff = touchStartX.current - touchEndX.current;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          // Swipe left: next banner
+          setFade(false);
+          setTimeout(() => {
+            setCurrentBanner((prev) => (prev + 1) % banners.length);
+            setFade(true);
+          }, 80);
+        } else {
+          // Swipe right: previous banner
+          setFade(false);
+          setTimeout(() => {
+            setCurrentBanner((prev) => (prev - 1 + banners.length) % banners.length);
+            setFade(true);
+          }, 80);
+        }
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   const handleCouponSubmit = (e) => {
     e.preventDefault();
@@ -87,7 +130,12 @@ function Home() {
 
       {/* --- SLIDING VIDEO BANNER SECTION --- */}
       <section className="sliding-banner-section">
-        <div className="banner-carousel">
+        <div
+          className="banner-carousel"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           {banners.map((banner, idx) => (
             <div
               key={banner.src}
@@ -116,7 +164,7 @@ function Home() {
 
       {/* --- HERO SECTION --- */}
       <section className="hero">
-          <div className="hero-content">
+        <div className="hero-content">
           <h1>
             Celebrate Diwali with <span className="brand">Elite Fireworks</span>
           </h1>
