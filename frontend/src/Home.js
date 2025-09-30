@@ -79,8 +79,8 @@ function Home() {
       <div className="notice-bar">
         <div className="notice-marquee">
           <span>
-            Buy orders in bulk to get more beneficial discounts! Prices vary by
-            time, so order immediately if you see a hot deal...
+            Buy orders of minimum ₹ 1000 to get more special discounts! Prices vary by
+            time, so order immediately if you see a hot deal don't miss out.
           </span>
         </div>
       </div>
@@ -116,12 +116,7 @@ function Home() {
 
       {/* --- HERO SECTION --- */}
       <section className="hero">
-        <img
-          src="/Diwali Elite Fireworks.svg"
-          alt="Diwali Elite Fireworks Logo"
-          className="hero-logo"
-        />
-        <div className="hero-content">
+          <div className="hero-content">
           <h1>
             Celebrate Diwali with <span className="brand">Elite Fireworks</span>
           </h1>
