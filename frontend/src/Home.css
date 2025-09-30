@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  border-bottom: 2px solid #ffd700;
+  border-bottom: none;
   box-shadow: 0 4px 16px #ffd70014;
   font-size: 1.07rem;
   z-index: 99;
@@ -406,7 +406,7 @@
     margin-top: 0;
   }
   .notice-bar {
-    min-height: 32px;
+    min-height: 38px;
     font-size: 0.97rem;
   }
 }
@@ -423,7 +423,9 @@
   }
   .notice-bar {
     font-size: 0.89rem;
-    min-height: 26px;
+    min-height: 40px;
+    background-color: rgb(66, 64, 107);
+    color: white;
   }
   .home-root {
     padding-bottom: 0.7rem;
