@@ -18,13 +18,11 @@ function Navbar({ cart }) {
   return (
     <nav className="navbar">
       <div className="navbar-logo" onClick={goHome} style={{ cursor: "pointer" }}>
-        {/* Animated Logo Video */}
-        <video
-          src="/logofinal.mp4"
-          autoPlay
-          muted
-          playsInline
-          className="logo-video"
+        {/* Updated: Use PNG Logo instead of SVG */}
+        <img
+          src="/logofinal.png"
+          alt="Diwali Elite Fireworks Logo"
+          className="logo-img"
         />
         {/* <span className="logo-text">Diwali Elite Fireworks</span> */}
       </div>

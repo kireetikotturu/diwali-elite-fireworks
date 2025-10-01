@@ -46,6 +46,14 @@ function Cart({ cart, setCart }) {
   const discount = couponApplied ? Math.round(subtotal * 0.2) : 0;
   const total = subtotal - discount;
 
+  // Calculate per-item discount and price
+  const getItemDiscount = (item) =>
+    couponApplied ? Math.round(item.price * item.qty * 0.2) : 0;
+  const getItemNewPrice = (item) =>
+    couponApplied
+      ? item.price * item.qty - getItemDiscount(item)
+      : item.price * item.qty;
+
   // Pass price info to checkout!
   const handleOrder = () => {
     navigate("/checkout", {
@@ -67,48 +75,66 @@ function Cart({ cart, setCart }) {
         </div>
       ) : (
         <>
-          <table className="cart-table">
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Qty</th>
-                <th>Price</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cart.map(item => (
-                <tr key={item.id}>
-                  <td>
-                    <div className="cart-product">
-                      <img src={item.image} alt={item.name} className="cart-img" />
-                      <span className="cart-name">{item.name}</span>
-                    </div>
-                  </td>
-                  <td>
-                    <div className="cart-qty-btns">
-                      <button
-                        className="cart-qty-btn"
-                        aria-label="Decrease"
-                        onClick={() => handleQtyChange(item.id, -1)}
-                        disabled={item.qty === 1}
-                      >-</button>
-                      <span className="cart-qty-val">{item.qty}</span>
-                      <button
-                        className="cart-qty-btn"
-                        aria-label="Increase"
-                        onClick={() => handleQtyChange(item.id, 1)}
-                      >+</button>
-                    </div>
-                  </td>
-                  <td className="cart-price">₹{item.price * item.qty}</td>
-                  <td>
-                    <button className="cart-remove-btn" onClick={() => handleRemove(item.id)}>❌</button>
-                  </td>
+          <div className="cart-table-wrap">
+            <table className="cart-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Qty</th>
+                  <th>Price</th>
+                  <th>Remove</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {cart.map(item => (
+                  <tr key={item.id}>
+                    <td>
+                      <div className="cart-product">
+                        <img src={item.image} alt={item.name} className="cart-img" />
+                        <span className="cart-name">{item.name}</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div className="cart-qty-btns">
+                        <button
+                          className="cart-qty-btn"
+                          aria-label="Decrease"
+                          onClick={() => handleQtyChange(item.id, -1)}
+                          disabled={item.qty === 1}
+                        >-</button>
+                        <span className="cart-qty-val">{item.qty}</span>
+                        <button
+                          className="cart-qty-btn"
+                          aria-label="Increase"
+                          onClick={() => handleQtyChange(item.id, 1)}
+                        >+</button>
+                      </div>
+                    </td>
+                    <td className="cart-price">
+                      {couponApplied ? (
+                        <>
+                          <span className="cart-price-old" style={{ textDecoration: "line-through", color: "#999", fontWeight: 400 }}>
+                            ₹{item.price * item.qty}
+                          </span>
+                          <span className="cart-price-new" style={{ color: "#008a10", fontWeight: "bold", marginLeft: 8 }}>
+                            ₹{getItemNewPrice(item)}
+                          </span>
+                          <span className="cart-item-discount" style={{ color: "#e040fb", marginLeft: 6, fontSize: "0.93em" }}>
+                            (-₹{getItemDiscount(item)})
+                          </span>
+                        </>
+                      ) : (
+                        <>₹{item.price * item.qty}</>
+                      )}
+                    </td>
+                    <td class="td-button-container">
+                      <button className="cart-remove-btn" onClick={() => handleRemove(item.id)}>❌</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
           <div className={`cart-coupon-section${animCoupon ? " coupon-anim" : ""}`}>
             <input

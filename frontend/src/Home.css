@@ -420,12 +420,14 @@
     max-height: 190px;
     min-height: 160px;
     height: 160px;
+    border-bottom: 0px;
   }
   .notice-bar {
-    font-size: 0.89rem;
-    min-height: 40px;
-    background-color: rgb(66, 64, 107);
+    font-size: 0.74rem;
+    min-height:28px;
+    background-color: rgb(28, 39, 80);
     color: white;
+    font-family: poppins;
   }
   .home-root {
     padding-bottom: 0.7rem;

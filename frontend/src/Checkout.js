@@ -49,6 +49,14 @@ function Checkout({ cart, setCart }) {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // Per-item discount calculation
+  const getItemDiscount = (item) =>
+    couponApplied ? Math.round(item.price * item.qty * 0.2) : 0;
+  const getItemNewPrice = (item) =>
+    couponApplied
+      ? item.price * item.qty - getItemDiscount(item)
+      : item.price * item.qty;
+
   // NAVIGATE to /thankyou after order placed!
   const handleOrder = async (e) => {
     e.preventDefault();
@@ -63,22 +71,21 @@ function Checkout({ cart, setCart }) {
     setLoadingOrder(true);
     const generatedOrderId = generateOrderId();
 
-    try {
-      await fetch(`${process.env.REACT_APP_API_URL}/api/order`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          orderId: generatedOrderId,
-          name: form.name,
-          phone: form.phone,
-          address: form.address,
-          pincode: form.pincode,
-          deliveryDate: form.deliveryDate,
-          cart,
-          total
-        })
-      });
-    } catch (error) {}
+    // Fire API call in background, but show success page after 2 seconds
+    fetch(`${process.env.REACT_APP_API_URL}/api/order`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        orderId: generatedOrderId,
+        name: form.name,
+        phone: form.phone,
+        address: form.address,
+        pincode: form.pincode,
+        deliveryDate: form.deliveryDate,
+        cart,
+        total
+      })
+    }).catch(() => {});
 
     setTimeout(() => {
       setLoadingOrder(false);
@@ -104,7 +111,7 @@ function Checkout({ cart, setCart }) {
           orderTotal: total
         }
       });
-    }, 500);
+    }, 2000); // Show success in 2 seconds, regardless of email sending
   };
 
   if (loadingOrder) {
@@ -120,10 +127,34 @@ function Checkout({ cart, setCart }) {
     );
   }
 
+  // Modern, premium empty cart UX
+  if (!cart || cart.length === 0) {
+    return (
+      <div className="cart-root cart-empty-root">
+        <div className="checkout-empty-box">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+            alt="Empty Cart"
+            className="checkout-empty-img"
+          />
+          <div className="checkout-empty-title">Your cart is empty</div>
+          <div className="checkout-empty-desc">
+            Looks like you haven't added anything yet.<br />
+            Start shopping and fill your cart with happiness!
+          </div>
+          <a href="/shop" className="checkout-shop-btn">
+            Shop Now
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  // Horizontal product alignment for checkout, with discount info
   return (
     <div className="cart-root">
       <h2 className="cart-title">Checkout</h2>
-      <table className="cart-table">
+      <table className="cart-table checkout-table">
         <thead>
           <tr>
             <th>Product</th>
@@ -135,13 +166,29 @@ function Checkout({ cart, setCart }) {
           {cart.map(item => (
             <tr key={item.id}>
               <td>
-                <div className="cart-product">
+                <div className="checkout-product-row">
                   <img src={item.image} alt={item.name} className="cart-img" />
                   <span className="cart-name">{item.name}</span>
                 </div>
               </td>
               <td>{item.qty}</td>
-              <td className="cart-price">₹{item.price * item.qty}</td>
+              <td className="cart-price">
+                {couponApplied ? (
+                  <>
+                    <span className="cart-price-old" style={{ textDecoration: "line-through", color: "#999", fontWeight: 400 }}>
+                      ₹{item.price * item.qty}
+                    </span>
+                    <span className="cart-price-new" style={{ color: "#008a10", fontWeight: "bold", marginLeft: 8 }}>
+                      ₹{getItemNewPrice(item)}
+                    </span>
+                    <span className="cart-item-discount" style={{ color: "#e040fb", marginLeft: 6, fontSize: "0.93em" }}>
+                      (-₹{getItemDiscount(item)})
+                    </span>
+                  </>
+                ) : (
+                  <>₹{item.price * item.qty}</>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>

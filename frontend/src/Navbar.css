@@ -1,215 +1,235 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background:#ffc972;
-    padding: 0.6rem 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(0deg, rgb(255, 227, 143),rgb(255, 222, 124), rgb(255, 216, 101),rgb(252, 211, 88), rgb(255, 205, 58) 80%) no-repeat;
+  padding: 0.6rem 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  min-height: 72px;
+  /* This lets the logo be max size without increasing navbar height */
+  overflow: hidden;
+}
+
+/* PNG Logo with easy resizing control */
+.logo-img {
+  display: block;
+  max-height: 68px; /* CHANGE THIS VALUE to increase/decrease logo size (desktop) */
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  /* Remove space around the logo */
+  box-sizing: content-box;
+}
+
+/* Optional: Add a class for easier one-line scaling, e.g. .logo-img.large { max-height: 90px; } */
+
+/* For quick scaling in Desktop: Just change max-height above! */
+
+.logo-text {
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  color: #c47c00;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: color 0.18s;
+}
+
+.navbar-logo:hover .logo-text {
+  color: #a67c00;
+}
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.navbar-cart-link {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 0.2rem;
+}
+
+.navbar-cart-icon-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 2px;
+}
+
+.navbar-cart-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar-cart-link:hover .navbar-cart-icon {
+  box-shadow: 0 2px 8px #c47c0030;
+  filter: brightness(1.2);
+}
+
+.navbar-cart-count {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  font-size: 0.91rem;
+  font-weight: bold;
+  color:rgb(31, 131, 1);
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+  min-width: 0;
+  min-height: 0;
+  pointer-events: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.6rem;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.navbar-links li {
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.navbar-links li.active a,
+.navbar-links a:hover {
+  color: #fff;
+  background: #c47c00;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px #ffd70040;
+}
+
+.navbar-links a {
+  color: #7a5c1e;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1.02rem;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.18s;
+  display: block;
+}
+
+.navbar-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+  z-index: 1100;
+}
+
+.bar {
+  width: 26px;
+  height: 3px;
+  background:rgb(104, 68, 3);
+  border-radius: 2px;
+  margin: 3px 0;
+  transition: 0.4s;
+}
+
+/* Mobile Styles */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: row;
+    padding: 0.49rem 0.7rem;
   }
-  
+
   .navbar-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    cursor: pointer;
-  }
-  
-  /* Updated: Video Logo */
-  .logo-video {
-    width: 206px;
-    height: 68px;
+    min-height:44px;
+    width: auto;
     padding: 0px;
-    object-fit: cover;
-    display: inline-block;
-    margin-right: 0.7rem;
-    background: #fffbe7;
-    vertical-align: middle;
+    overflow: hidden;
   }
-  
-  .logo-text {
-    font-family: 'Merriweather', serif;
-    font-size: 1.25rem;
-    color: #c47c00;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: color 0.18s;
-  }
-  
-  .navbar-logo:hover .logo-text {
-    color: #a67c00;
-  }
-  
-  .navbar-icons {
-    display: flex;
-    align-items: center;
-    gap: 1.1rem;
-  }
-  
-  .navbar-cart-link {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-right: 0.2rem;
-  }
-  
-  .navbar-cart-icon-wrap {
-    position: relative;
-    display: inline-block;
-    padding: 2px;
-  }
-  
-  .navbar-cart-icon {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    display: block;
-  }
-  
-  .navbar-cart-link:hover .navbar-cart-icon {
-    box-shadow: 0 2px 8px #c47c0030;
-    filter: brightness(1.2);
-  }
-  
-  .navbar-cart-count {
-    position: absolute;
-    top: -7px;
-    right: -7px;
-    font-size: 0.91rem;
-    font-weight: bold;
-    color:rgb(31, 131, 1); /* Dark gold */
-    background: none;
-    border: none;
-    padding: 0;
-    line-height: 1;
-    min-width: 0;
-    min-height: 0;
-    pointer-events: none;
-  }
-  
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 1.6rem;
+
+  .logo-img {
+    max-height: 50px; /* CHANGE THIS VALUE to increase/decrease logo size (mobile) */
+    height: 100%;
+    width: auto;
     margin: 0;
     padding: 0;
-    transition: all 0.3s;
+    object-fit: contain;
   }
-  
-  .navbar-links li {
-    transition: transform 0.18s, box-shadow 0.18s;
+
+  .navbar-logo .logo-text {
+    font-size: 1.59rem;
   }
-  
-  .navbar-links li.active a,
-  .navbar-links a:hover {
-    color: #fff;
-    background: #c47c00;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px #ffd70040;
+
+  .navbar-icons {
+    gap: 0.7rem;
   }
-  
-  .navbar-links a {
-    color: #7a5c1e;
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 1.02rem;
-    padding: 8px 14px;
-    border-radius: 4px;
-    transition: background 0.3s, color 0.18s;
-    display: block;
+
+  .navbar-cart-icon {
+    width: 20px;
+    height: 20px;
   }
-  
-  .navbar-hamburger {
-    display: none;
+
+  .navbar-cart-count {
+    font-size: 0.78rem;
+    top: -5px;
+    right: -5px;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 54px;
+    left: 0;
+    width: 100vw;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 38px;
-    height: 38px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-left: 1rem;
-    z-index: 1100;
+    background: #fffbe7;
+    box-shadow: 0 6px 24px #c47c0033;
+    border-radius: 0 0 16px 16px;
+    gap: 0.2rem;
+    padding: 1.1rem 0;
+    display: none;
+    animation: dropdownIn 0.32s;
+    z-index: 1050;
   }
-  
-  .bar {
-    width: 26px;
-    height: 3px;
-    background:rgb(104, 68, 3);
-    border-radius: 2px;
-    margin: 3px 0;
-    transition: 0.4s;
+
+  .navbar-links.open {
+    display: flex;
   }
-  
-  /* Mobile Styles */
-  @media (max-width: 700px) {
-    .navbar {
-      flex-direction: row;
-      padding: 0.55rem 0.7rem;
-    }
-  
-    .navbar-logo .logo-text {
-      font-size: 1.59rem;
-    }
-  
-    .logo-video {
-      width: 178px;
-      height: 68px;
-      border: none;
-    }
-  
-    .navbar-icons {
-      gap: 0.7rem;
-    }
-  
-    .navbar-cart-icon {
-      width: 20px;
-      height: 20px;
-    }
-  
-    .navbar-cart-count {
-      font-size: 0.78rem;
-      top: -5px;
-      right: -5px;
-    }
-  
-    .navbar-links {
-      position: absolute;
-      top: 54px;
-      left: 0;
-      width: 100vw;
-      flex-direction: column;
-      background: #fffbe7;
-      box-shadow: 0 6px 24px #c47c0033;
-      border-radius: 0 0 16px 16px;
-      gap: 0.2rem;
-      padding: 1.1rem 0;
-      display: none;
-      animation: dropdownIn 0.32s;
-      z-index: 1050;
-    }
-  
-    .navbar-links.open {
-      display: flex;
-    }
-  
-    .navbar-hamburger {
-      display: flex;
-    }
-  
-    .navbar-backdrop {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(60,60,60,0.16);
-      z-index: 1040;
-    }
+
+  .navbar-hamburger {
+    display: flex;
   }
-  
-  @keyframes dropdownIn {
-    0% { transform: translateY(-16px); opacity: 0.4;}
-    100% { transform: translateY(0); opacity: 1;}
+
+  .navbar-backdrop {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(60,60,60,0.16);
+    z-index: 1040;
   }
-  
+}
+
+@keyframes dropdownIn {
+  0% { transform: translateY(-16px); opacity: 0.4;}
+  100% { transform: translateY(0); opacity: 1;}
+}
