@@ -189,7 +189,7 @@ function Cart({ cart, setCart }) {
           <button
             className="cart-order-btn"
             onClick={handleOrder}
-            style={{ width: "100%", marginTop: "1.2rem" }}
+            style={{ width: "100%", marginBottom: "1rem" }}
           >
             Order Now
           </button>

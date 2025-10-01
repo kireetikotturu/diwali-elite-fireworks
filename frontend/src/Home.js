@@ -279,6 +279,17 @@ function Home() {
           <p>Elite quality crackers, cash on delivery, instant coupons!</p>
         </div>
       </section>
+
+      {/* --- WhatsApp Floating Button --- */}
+      <a
+        href="https://wa.me/919876543210"
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+      >
+        <img src="/whatsapplogo.svg" alt="WhatsApp" className="whatsapp-logo" />
+      </a>
     </div>
   );
 }
