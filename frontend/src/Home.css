@@ -49,57 +49,35 @@
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   background: #000;
 }
 
+/* --- NEW CAROUSEL: SMOOTH HORIZONTAL SCROLL/PAGINATION --- */
 .banner-carousel {
-  position: relative;
+  display: flex;
+  flex-direction: row;
   width: 100vw;
   min-height: 340px;
   height: 340px;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
   overflow: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+  will-change: transform;
+  touch-action: pan-x;
 }
 
 .banner-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
+  min-width: 100vw;
   width: 100vw;
   height: 340px;
+  position: relative;
+  flex: 0 0 100vw;
+  transition: transform 0.5s cubic-bezier(.77,0,.18,1);
   display: block;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.5s;
-}
-
-.banner-slide.active {
-  opacity: 1;
-  z-index: 2;
-  pointer-events: auto;
-}
-
-.banner-slide.fade-in {
-  animation: bannerFadeIn 0.5s;
-  opacity: 1;
-}
-
-.banner-slide.fade-out {
-  animation: bannerFadeOut 0.5s;
-  opacity: 0;
-}
-
-@keyframes bannerFadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@keyframes bannerFadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  background: #000;
 }
 
 .banner-video {
@@ -115,6 +93,31 @@
   display: block;
   background: #000;
   z-index: 1;
+}
+
+/* --- Carousel Pagination Dots --- */
+.banner-dots {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+.banner-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fffbe7;
+  border: 2px solid #c47c00;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: background 0.18s, opacity 0.18s;
+}
+.banner-dot.active {
+  background: #e040fb;
+  opacity: 1;
+  border-color: #e040fb;
 }
 
 /* --- HERO SECTION --- */
@@ -143,7 +146,10 @@
   letter-spacing: 0.5px;
   font-weight: 700;
 }
-
+.brand-head{
+  margin-top: 25px;
+  margin-bottom: 0px;
+}
 .brand {
   color: #c47c00;
   font-weight: 700;
@@ -451,10 +457,18 @@
     min-height: 38px;
     font-size: 0.97rem;
   }
+  .banner-dots {
+    margin-bottom: 4px;
+    gap: 10px;
+  }
 }
 @media (max-width: 700px) {
-  .banner-carousel, .banner-slide {
+  .banner-carousel {
     min-height: 160px;
+    height: 160px;
+  }
+  .banner-slide {
+    min-width: 100vw;
     height: 160px;
   }
   .banner-video {
@@ -463,6 +477,10 @@
     min-height: 160px;
     height: 160px;
     border-bottom: 0px;
+  }
+  .banner-dots {
+    margin-top: 8px;
+    gap: 8px;
   }
   .notice-bar {
     font-size: 0.74rem;

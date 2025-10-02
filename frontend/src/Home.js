@@ -4,19 +4,16 @@ import confetti from "canvas-confetti";
 import "./Home.css";
 
 function Home() {
-  const [phone, setPhone] = useState("");
-  const [showCoupon, setShowCoupon] = useState(false);
+  const [phone, setPhone] = useState(() => localStorage.getItem("userPhone") || "");
+  const [showCoupon, setShowCoupon] = useState(() => !!localStorage.getItem("couponCode"));
   const [sending, setSending] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
   const navigate = useNavigate();
 
-  const couponCode = "DIWALI0690";
+  const couponCode = localStorage.getItem("couponCode") || "DIWALI0690";
 
   // --- Carousel state for MP4 banners ---
   const [currentBanner, setCurrentBanner] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  // Added banner3.mp4 and banner4.mp4
   const banners = [
     { src: "/banner1.mp4", alt: "Diwali Banner 1" },
     { src: "/banner2.mp4", alt: "Diwali Banner 2" },
@@ -24,22 +21,31 @@ function Home() {
     { src: "/banner4.mp4", alt: "Diwali Banner 4" },
   ];
 
-  // Touch/swipe support
+  // Carousel scroll/pagination state
+  const carouselRef = useRef();
+
+  // --- Carousel Auto Scroll ---
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleBannerChange((currentBanner + 1) % banners.length);
+    }, 5000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line
+  }, [currentBanner, banners.length]);
+
+  // --- Smooth Carousel Scroll ---
+  const handleBannerChange = (idx) => {
+    setCurrentBanner(idx);
+    if (carouselRef.current) {
+      const scrollX = idx * carouselRef.current.offsetWidth;
+      carouselRef.current.scrollTo({ left: scrollX, behavior: "smooth" });
+    }
+  };
+
+  // --- Touch/swipe support for carousel ---
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setCurrentBanner((prev) => (prev + 1) % banners.length);
-        setFade(true);
-      }, 480);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [banners.length]);
-
-  // Touch handlers for swipe
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
     touchEndX.current = null;
@@ -52,21 +58,13 @@ function Home() {
   const handleTouchEnd = () => {
     if (touchStartX.current !== null && touchEndX.current !== null) {
       const diff = touchStartX.current - touchEndX.current;
-      if (Math.abs(diff) > 50) {
+      if (Math.abs(diff) > 40) {
         if (diff > 0) {
           // Swipe left: next banner
-          setFade(false);
-          setTimeout(() => {
-            setCurrentBanner((prev) => (prev + 1) % banners.length);
-            setFade(true);
-          }, 80);
+          handleBannerChange((currentBanner + 1) % banners.length);
         } else {
           // Swipe right: previous banner
-          setFade(false);
-          setTimeout(() => {
-            setCurrentBanner((prev) => (prev - 1 + banners.length) % banners.length);
-            setFade(true);
-          }, 80);
+          handleBannerChange((currentBanner - 1 + banners.length) % banners.length);
         }
       }
     }
@@ -74,6 +72,7 @@ function Home() {
     touchEndX.current = null;
   };
 
+  // --- Coupon Submit ---
   const handleCouponSubmit = (e) => {
     e.preventDefault();
     if (!phone || phone.length < 10) {
@@ -82,11 +81,13 @@ function Home() {
 
     setSending(true);
 
-    // ✅ Show coupon instantly (fast UX)
+    // Save to localStorage for persistence across pages
+    localStorage.setItem("userPhone", phone);
+    localStorage.setItem("couponCode", couponCode);
     setShowCoupon(true);
     setSending(false);
 
-    // ✅ Fire API call in background (don’t block UI)
+    // Fire API call in background (don’t block UI)
     fetch(`${process.env.REACT_APP_API_URL}/api/coupons`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -95,7 +96,7 @@ function Home() {
       console.error("Coupon API failed:", error);
     });
 
-    // 🎉 Confetti celebration
+    // Confetti celebration
     confetti({
       particleCount: 60,
       spread: 45,
@@ -106,8 +107,12 @@ function Home() {
     });
   };
 
-  const handleShopNow = (link) => {
-    navigate(link);
+  // Coupon persists until cleared after order (implement this in your order placement logic)
+  // Example: localStorage.removeItem("couponCode"); localStorage.removeItem("userPhone");
+
+  // --- Shop Now always goes to Categories page ---
+  const handleShopNow = () => {
+    navigate("/shop"); // always go to categories, not items/products
   };
 
   const handleCopyCoupon = () => {
@@ -132,6 +137,7 @@ function Home() {
       <section className="sliding-banner-section">
         <div
           className="banner-carousel"
+          ref={carouselRef}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -139,13 +145,11 @@ function Home() {
           {banners.map((banner, idx) => (
             <div
               key={banner.src}
-              className={
-                "banner-slide" +
-                (currentBanner === idx ? " active" : "") +
-                (fade && currentBanner === idx ? " fade-in" : " fade-out")
-              }
+              className="banner-slide"
               style={{
-                display: currentBanner === idx ? "block" : "none",
+                left: `${idx * 100}%`,
+                transform: `translateX(-${currentBanner * 100}%)`,
+                transition: "transform 0.5s cubic-bezier(.77,0,.18,1)", // smooth slide
               }}
             >
               <video
@@ -160,20 +164,30 @@ function Home() {
             </div>
           ))}
         </div>
+        {/* Pagination Dots */}
+        {/* <div className="banner-dots">
+          {banners.map((_, idx) => (
+            <span
+              key={idx}
+              className={`banner-dot${currentBanner === idx ? " active" : ""}`}
+              onClick={() => handleBannerChange(idx)}
+            />
+          ))}
+        </div> */}
       </section>
 
       {/* --- HERO SECTION --- */}
       <section className="hero">
         <div className="hero-content">
-          <h1>
-            Celebrate Diwali with <span className="brand">Elite Fireworks</span>
+          <h1 class="brand-head">
+            Celebrate Diwali with <span className="brand">Elite Crackers</span>
           </h1>
           <p className="hero-desc">
             A classic way to light up your festival—premium crackers, home
             delivery, special offers.
           </p>
           <div className="hero-btns">
-            <button className="cta-btn" onClick={() => handleShopNow("/shop")}>
+            <button className="cta-btn" onClick={handleShopNow}>
               Shop Now
             </button>
             <a href="/offers" className="cta-btn offers-btn">
@@ -192,7 +206,10 @@ function Home() {
               minLength={10}
               placeholder="Enter mobile number"
               value={phone}
-              onChange={(e) => setPhone(e.target.value.replace(/\D/g, ""))}
+              onChange={(e) => {
+                setPhone(e.target.value.replace(/\D/g, ""));
+                localStorage.setItem("userPhone", e.target.value.replace(/\D/g, ""));
+              }}
               required
               disabled={showCoupon}
             />
