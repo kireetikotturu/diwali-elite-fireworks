@@ -20,7 +20,7 @@ const categories = [
 const products = [
   {
     id: 1,
-    name: "75CM ELECTRIC\n(Box: 10PCS)",  // \n for line break
+    name: "75CM ELECTRIC\n(Box: 10PCS)",
     price: 322,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg",
@@ -115,11 +115,30 @@ function Shop({ cart, setCart }) {
         event.preventDefault();
         setSelectedCategory(null);
         window.history.pushState(null, ""); // stay on same page
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }, 0);
       }
     };
     window.addEventListener("popstate", handleBack);
     return () => window.removeEventListener("popstate", handleBack);
   }, [selectedCategory]);
+
+  // Always scroll to top when switching to product view or back to categories
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleCategorySelect = (catName) => {
+    setSelectedCategory(catName);
+    window.history.pushState({ category: catName }, "");
+    setTimeout(scrollToTop, 0);
+  };
+
+  const handleBackToCategories = () => {
+    setSelectedCategory(null);
+    setTimeout(scrollToTop, 0);
+  };
 
   const addToCart = (product) => {
     const exists = cart.find((item) => item.id === product.id);
@@ -152,10 +171,7 @@ function Shop({ cart, setCart }) {
               <div
                 className="category-card"
                 key={cat.name}
-                onClick={() => {
-                  setSelectedCategory(cat.name);
-                  window.history.pushState({ category: cat.name }, ""); // push state for back button
-                }}
+                onClick={() => handleCategorySelect(cat.name)}
                 tabIndex={0}
                 role="button"
                 aria-label={`View ${cat.name}`}
@@ -194,7 +210,7 @@ function Shop({ cart, setCart }) {
           <div className="shop-header-flex">
             <button
               className="category-back-btn"
-              onClick={() => setSelectedCategory(null)}
+              onClick={handleBackToCategories}
             >
               ← Back to Categories
             </button>

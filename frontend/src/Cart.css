@@ -7,7 +7,7 @@
     padding: 2rem 1rem;
     min-height: 70vh;
     font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
 }
 
 .cart-title {
@@ -23,18 +23,68 @@
     color: #6342a7;
     font-size: 1.18rem;
     margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
 }
-
-.cart-shop-link {
-    color: #c47c00;
-    font-weight: bold;
-    text-decoration: underline;
+.cart-empty-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+    width: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+    padding: 2.4rem 0.5rem;
+    background: linear-gradient(135deg, #faf2d1 60%, #ffd70033 100%);
+    border-radius: 18px;
+    box-shadow: 0 4px 12px #c47c0033;
+}
+.cart-empty-icon {
+    margin-bottom: 0.7rem;
+    opacity: 0.85;
+    filter: drop-shadow(0 2px 8px #e040fb44);
+}
+.cart-empty-text {
+    font-size: 1.23rem;
+    color: #6342a7;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+.cart-shopnow-btn {
+    background: linear-gradient(90deg, #6342a7 40%, #e040fb 100%);
+    color: #fffbe7;
+    border: none;
+    border-radius: 9px;
+    font-size: 1.19rem;
+    font-weight: 700;
+    padding: 0.8rem 2.1rem;
+    cursor: pointer;
+    transition: background 0.17s, box-shadow 0.18s, transform 0.15s;
+    box-shadow: 0 2px 14px #e040fb33;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+.cart-shopnow-btn:hover,
+.cart-shopnow-btn:focus {
+    background: linear-gradient(90deg, #ffd700 20%, #e040fb 100%);
+    color: #6342a7;
+    box-shadow: 0 4px 22px #ffd70044;
+    transform: scale(1.035);
+}
+.cart-shopnow-icon {
+    font-size: 1.3em;
+    margin-right: 0.2em;
 }
 
 /* --- Cart Table --- */
 .cart-table-wrap {
     width: 100%;
-    overflow-x: auto; /* Responsive scrolling for table */
+    overflow-x: auto;
 }
 
 .cart-table {
@@ -697,5 +747,3 @@
         margin-left: 0.3rem;
     }
 }
-
-/* --- Add any further existing rules from your original Cart.css below, if needed --- */

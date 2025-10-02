@@ -4,6 +4,11 @@ import confetti from "canvas-confetti";
 import "./Home.css";
 
 function Home() {
+  const handleNav = (to) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    navigate(to);
+  };
+
   const [phone, setPhone] = useState(() => localStorage.getItem("userPhone") || "");
   const [showCoupon, setShowCoupon] = useState(() => !!localStorage.getItem("couponCode"));
   const [sending, setSending] = useState(false);

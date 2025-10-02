@@ -1,33 +1,69 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./About.css";
 
 function About() {
+  const navigate = useNavigate();
+
+  const handleExplore = () => {
+    // Always go to categories section of Shop page
+    navigate("/shop");
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 0);
+  };
+
   return (
-    <div style={{
-      padding: "2rem",
-      textAlign: "center",
-      background: "linear-gradient(120deg, #ffd700 60%, #ff9800 100%)",
-      minHeight: "70vh",
-      borderRadius: "18px",
-      boxShadow: "0 4px 22px #ffd70044",
-      margin: "2rem auto",
-      maxWidth: "850px"
-    }}>
-      <h2 style={{ color: "#e040fb", fontSize: "2.1rem", marginBottom: "1rem" }}>
-        About Diwali Elite Fireworks
-      </h2>
-      <p style={{ fontSize: "1.19rem", color: "#7a4d00", marginBottom: "1.5rem" }}>
-        For over <b>5 years</b>, our family-run store has brought light and joy to Diwali celebrations in our community.<br/>
-        Now, we’re bringing the Elite experience online—so you can enjoy high-quality, safe, and exciting fireworks delivered to your doorstep!
-      </p>
-      <ul style={{ fontSize: "1.07rem", color: "#d2691e", listStyle: "none", padding: 0 }}>
-        <li>💫 Trust: 1000+ happy families served</li>
-        <li>🚚 Cash on Delivery & Fast Delivery</li>
-        <li>🎆 Only branded, certified products</li>
-        <li>🌟 Exclusive discounts & instant coupons</li>
-      </ul>
-      <p style={{ marginTop: "2rem", fontSize: "1.05rem", color: "#7a4d00" }}>
-        Celebrate safely. Celebrate with Elite!
-      </p>
+    <div className="about-root">
+      <div className="about-main-card">
+        <h1 className="about-title">Welcome to Elite Fireworks Online</h1>
+        <div className="about-desc">
+          <b>Elite Fireworks</b> is your trusted destination for top-quality crackers and fireworks, serving thousands of happy customers for over <span className="about-highlight">five years</span>.<br /><br />
+          With our roots in traditional offline sales, we now bring the same excellence and festive joy to the digital world—making it easier, safer, and more affordable for every family to celebrate their special moments.
+        </div>
+        <div className="about-explore-btn-row">
+          <button className="about-explore-btn" onClick={handleExplore}>
+            🎆 Explore Our Products
+          </button>
+        </div>
+      </div>
+
+      <div className="about-section-card">
+        <h2 className="about-section-title">Our Vision</h2>
+        <div className="about-section-desc">
+          To spread happiness and unforgettable celebrations by providing safe, unique, and eco-friendly crackers—without compromising on quality.
+        </div>
+      </div>
+      <div className="about-section-card">
+        <h2 className="about-section-title">Our Mission</h2>
+        <div className="about-section-desc">
+          We never sacrifice safety or quality—because your joy and wellbeing matter. Every product undergoes strict testing and quality checks, ensuring your celebrations sparkle safely.
+        </div>
+      </div>
+      <div className="about-section-card">
+        <h2 className="about-section-title">Our Motto</h2>
+        <div className="about-section-desc">
+          To make high-quality crackers accessible at factory-direct prices, so everyone can enjoy bigger discounts and more happiness. Each batch is crafted with care, so you can celebrate every occasion with confidence and delight.
+        </div>
+      </div>
+      <div className="about-section-card">
+        <h2 className="about-section-title">Why Choose Elite Fireworks?</h2>
+        <ul className="about-list">
+          <li>✅ Trusted by thousands of families and businesses</li>
+          <li>✅ Premium, lab-tested Sivakasi crackers and fireworks</li>
+          <li>✅ Direct-from-factory prices—no middlemen, no markups</li>
+          <li>✅ Huge discounts, exclusive combos, and festive gifts</li>
+          <li>✅ Fast and safe delivery to your doorstep</li>
+          <li>✅ Dedicated support before and after your purchase</li>
+        </ul>
+      </div>
+      <div className="about-footer-note">
+        <b>Join the Elite family—make every celebration brighter, safer, and more memorable!</b>
+        <br /><br />
+        <span className="about-contact-info">
+          Need help? <a href="/contact" className="about-contact-link">Contact us</a> any time.
+        </span>
+      </div>
     </div>
   );
 }

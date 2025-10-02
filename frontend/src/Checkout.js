@@ -4,6 +4,7 @@ import confetti from "canvas-confetti";
 import "./Cart.css";
 
 function generateOrderId() {
+
   const randomNum = Math.floor(1000 + Math.random() * 9000);
   const now = new Date();
   const dateStr =

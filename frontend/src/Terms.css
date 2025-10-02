@@ -1,0 +1,42 @@
+.terms-root {
+    max-width: 740px;
+    margin: 2.5rem auto 2.5rem auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 18px #23284922;
+    padding: 2.3rem 1.1rem;
+    color: #232849;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  }
+  
+  .terms-title {
+    color: #6342a7;
+    font-size: 1.55rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  
+  .terms-content {
+    font-size: 1.09rem;
+    color: #323e6b;
+    line-height: 1.7;
+    font-weight: 400;
+  }
+  
+  @media (max-width: 700px) {
+    .terms-root {
+      padding: 1.1rem 0.5rem;
+      font-size: 0.97rem;
+      margin: 1.1rem auto 1.1rem auto;
+    }
+    .terms-title {
+      font-size: 1.12rem;
+      margin-bottom: 0.7rem;
+    }
+    .terms-content {
+      font-size: 0.97rem;
+      line-height: 1.5;
+    }
+  }

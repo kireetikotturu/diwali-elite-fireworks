@@ -66,12 +66,41 @@ function Cart({ cart, setCart }) {
     });
   };
 
+  // Shop Now button: always go to categories, clear selectedCategory from localStorage
+  const handleShopNow = (e) => {
+    e.preventDefault();
+    localStorage.removeItem("selectedCategory");
+    navigate("/shop");
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 0);
+  };
+
   return (
     <div className="cart-root">
       <h2 className="cart-title">Your Cart</h2>
       {cart.length === 0 ? (
         <div className="cart-empty">
-          Your cart is empty. <br /> <a href="/shop" className="cart-shop-link">Shop Now</a>
+          <div className="cart-empty-content">
+            <svg className="cart-empty-icon" width="56" height="56" viewBox="0 0 56 56" fill="none">
+              <circle cx="28" cy="28" r="27" stroke="#e040fb" strokeWidth="2" fill="#f6e7b2"/>
+              <path d="M18 35c1.3-3.6 4.8-6 10-6s8.7 2.4 10 6" stroke="#c47c00" strokeWidth="2.5" strokeLinecap="round"/>
+              <ellipse cx="22.5" cy="24" rx="2.5" ry="3" fill="#6342a7"/>
+              <ellipse cx="33.5" cy="24" rx="2.5" ry="3" fill="#6342a7"/>
+            </svg>
+            <div className="cart-empty-text">
+              Your cart is empty.
+            </div>
+            <button
+              className="cart-shopnow-btn"
+              onClick={handleShopNow}
+            >
+              <span className="cart-shopnow-icon" role="img" aria-label="Shop">
+                🛒
+              </span>
+              Shop Now
+            </button>
+          </div>
         </div>
       ) : (
         <>
@@ -127,7 +156,7 @@ function Cart({ cart, setCart }) {
                         <>₹{item.price * item.qty}</>
                       )}
                     </td>
-                    <td class="td-button-container">
+                    <td className="td-button-container">
                       <button className="cart-remove-btn" onClick={() => handleRemove(item.id)}>❌</button>
                     </td>
                   </tr>

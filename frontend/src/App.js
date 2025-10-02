@@ -9,7 +9,10 @@ import About from "./About";
 import Contact from "./Contact";
 import WhatsappFloat from "./WhatsappFloat";
 import Checkout from "./Checkout";
-import ThankYou from "./ThankYou"; // <--- import the ThankYou page!
+import ThankYou from "./ThankYou";
+import Footer from "./Footer"; // <--- ADD THIS
+import Terms from "./Terms"; // <--- ADD THIS
+import ShippingPayment from "./ShippingPayment"; // <--- ADD THIS
 
 function useHideWhatsapp(cart) {
   const location = useLocation();
@@ -40,12 +43,15 @@ function App() {
           <Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
           <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
           <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} />} />
-          <Route path="/thankyou" element={<ThankYou />} /> {/* <--- ADD THIS */}
+          <Route path="/thankyou" element={<ThankYou />} />
           <Route path="/offers" element={<Offers />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} /> {/* <-- Terms & Conditions */}
+          <Route path="/shipping" element={<ShippingPayment />} /> {/* <-- Shipping & Payment Policy */}
         </Routes>
         {!hideWhatsapp && <WhatsappFloat />}
+        <Footer /> {/* <-- Footer is shown on ALL pages */}
       </>
     );
   }
