@@ -32,7 +32,7 @@ const products = [
     name: "30CM ELECTRIC\n(Box: 10PCS)",
     price: 58,
     actualPrice: 100,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759509718/30CM_LONG_1080_x_900_px_qdsnzn.png",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759510450/30CM_LONG_1080_x_900_px_3_md2a6t.png",
     category: "Sparklers",
     offer: "-42% OFF"
   },
