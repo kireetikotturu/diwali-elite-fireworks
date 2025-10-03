@@ -23,7 +23,7 @@ const products = [
     name: "75CM ELECTRIC\n(Box: 10PCS)",
     price: 322,
     actualPrice: 500,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759508794/Untitled_design_4_ra49vz.png",
     category: "Sparklers",
     offer: "-36% OFF"
   },
@@ -32,7 +32,7 @@ const products = [
     name: "30CM ELECTRIC\n(Box: 10PCS)",
     price: 58,
     actualPrice: 100,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759509718/30CM_LONG_1080_x_900_px_qdsnzn.png",
     category: "Sparklers",
     offer: "-42% OFF"
   },
