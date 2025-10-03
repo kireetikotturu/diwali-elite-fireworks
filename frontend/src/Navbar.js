@@ -3,10 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar({ cart }) {
-  const handleNav = (to) => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    navigate(to);
-  };
   
   const location = useLocation();
   const navigate = useNavigate();
