@@ -68,5 +68,29 @@ app.post("/api/order", async (req, res) => {
   }
 });
 
+// Contact POST endpoint (NEW)
+app.post("/api/contact", async (req, res) => {
+  const { name, phone, message } = req.body;
+
+  try {
+    await resend.emails.send({
+      from: 'Diwali Elite Fireworks <onboarding@resend.dev>',
+      to: 'venombar122@gmail.com',
+      subject: 'New Contact Form Submission',
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><b>Name:</b> ${name}</p>
+        <p><b>Phone:</b> ${phone}</p>
+        <p><b>Message:</b></p>
+        <p>${message}</p>
+      `
+    });
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Email send error:", error);
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log("Server running on " + PORT));

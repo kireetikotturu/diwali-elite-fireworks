@@ -2,6 +2,16 @@ import React, { useState } from "react";
 import confetti from "canvas-confetti";
 import "./Contact.css";
 
+function generateContactId() {
+  const randomNum = Math.floor(1000 + Math.random() * 9000);
+  const now = new Date();
+  const dateStr =
+    now.getFullYear().toString() +
+    String(now.getMonth() + 1).padStart(2, "0") +
+    String(now.getDate()).padStart(2, "0");
+  return `CONTACT-${randomNum}-${dateStr}`;
+}
+
 function Contact() {
   const [form, setForm] = useState({
     name: "",
@@ -15,7 +25,7 @@ function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Send contact form data to backend/email
+  // Async submit, always show success after 2 seconds
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.phone || !form.message) {
@@ -23,22 +33,21 @@ function Contact() {
       return;
     }
     setSending(true);
-    try {
-      await fetch(`${process.env.REACT_APP_API_URL}/api/order`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          orderId: "CONTACT-" + Math.floor(Math.random() * 10000),
-          name: form.name,
-          phone: form.phone,
-          address: "Contact Form Submission",
-          pincode: "",
-          deliveryDate: "",
-          cart: [],
-          total: "",
-          message: form.message
-        })
-      });
+    generateContactId(); // generated but not needed in backend now
+
+    // ✅ Send to dedicated contact endpoint
+    fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.name,
+        phone: form.phone,
+        message: form.message
+      })
+    }).catch(() => {});
+
+    setTimeout(() => {
+      setSending(false);
       setSent(true);
       confetti({
         particleCount: 60,
@@ -48,10 +57,11 @@ function Contact() {
         scalar: 0.8,
         ticks: 120,
       });
-    } catch (err) {
-      alert("Failed to send. Please try again.");
-    }
-    setSending(false);
+      // Hide the success message after 2 seconds
+      setTimeout(() => setSent(false), 2000);
+      // Clear the form fields
+      setForm({ name: "", phone: "", message: "" });
+    }, 2000);
   };
 
   return (
@@ -122,7 +132,7 @@ function Contact() {
             placeholder="Your Name"
             required
             className="contact-input"
-            disabled={sent}
+            disabled={sending}
           />
           <label htmlFor="phone" className="contact-label">Mobile Number</label>
           <input
@@ -137,7 +147,7 @@ function Contact() {
             maxLength={10}
             pattern="[0-9]{10}"
             className="contact-input"
-            disabled={sent}
+            disabled={sending}
           />
           <label htmlFor="message" className="contact-label">Your Message</label>
           <textarea
@@ -148,21 +158,21 @@ function Contact() {
             placeholder="How can we help you?"
             required
             className="contact-textarea"
-            disabled={sent}
+            disabled={sending}
           />
           <button
             type="submit"
             className="contact-form-btn"
-            disabled={sending || sent}
+            disabled={sending}
           >
-            {sending ? "Sending..." : sent ? "Sent!" : "Send Message"}
+            {sending ? "Sending..." : "Send Message"}
           </button>
-          {sent && (
-            <div className="contact-form-success">
-              Thank you for reaching out! We'll contact you soon.
-            </div>
-          )}
         </form>
+        {sent && (
+          <div className="contact-form-success">
+            Thank you for reaching out! We'll contact you soon.
+          </div>
+        )}
       </div>
     </div>
   );
