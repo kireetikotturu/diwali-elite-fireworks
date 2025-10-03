@@ -1,5 +1,5 @@
 .footer-root {
-  background: linear-gradient(180deg, #fffbe7 85%, #fff4bb 100%);
+  background: linear-gradient(180deg, #fff7cd 85%, #fff4bb 100%);
   color: #553d00;
   padding: 2.7rem 1.4rem 1.6rem 1.4rem;
   box-shadow: 0 -2px 16px #6a677118;
@@ -38,7 +38,7 @@
 
 .footer-link {
   background: none;
-  color: #232849;
+  color: #2d324d;
   text-decoration: none;
   font-size: 1rem;
   padding: 4px 0 4px 0;
@@ -49,7 +49,7 @@
   cursor: pointer;
   border-radius: 3px;
   font-family: inherit;
-  font-weight: 430;
+  font-weight: 400;
 }
 .footer-link:hover,
 .footer-link:focus {
