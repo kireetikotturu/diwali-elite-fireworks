@@ -345,6 +345,7 @@
 
 .banner-card {
   background: #fff;
+  font-family: "arial";
   color: #7a5c1e;
   border-radius: 10px;
   padding: 0.8rem 1.1rem;
@@ -555,8 +556,11 @@
     font-size: 0.89rem;
   }
   .banner-card h3 {
-    font-size: 0.93rem;
-    margin-bottom: 0.2rem;
+    font-size: 1.03rem;
+    margin-bottom: 0rem;
+  }
+  .banner-card p{
+    font-size: 16px;
   }
   .whatsapp-float {
     right: 12px;
