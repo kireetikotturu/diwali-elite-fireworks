@@ -23,7 +23,7 @@ const products = [
     name: "75CM ELECTRIC\n(Box: 10PCS)",
     price: 322,
     actualPrice: 500,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759508794/Untitled_design_4_ra49vz.png",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759546058/30CM_LONG_1080_x_900_px_12_nynve7.png",
     category: "Sparklers",
     offer: "-36% OFF"
   },
@@ -32,7 +32,7 @@ const products = [
     name: "30CM ELECTRIC\n(Box: 10PCS)",
     price: 58,
     actualPrice: 100,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759510450/30CM_LONG_1080_x_900_px_3_md2a6t.png",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759543420/30CM_LONG_1080_x_900_px_4_am0r2w.png",
     category: "Sparklers",
     offer: "-42% OFF"
   },
@@ -41,7 +41,7 @@ const products = [
     name: "30CM CRACKLING\n(Box: 10PCS)",
     price: 62,
     actualPrice: 120,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/flowerpot_image1_lusjld.jpg",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759544350/30CM_LONG_1080_x_900_px_6_vvxdmb.png",
     category: "Sparklers",
     offer: "-49% OFF"
   },
@@ -50,7 +50,7 @@ const products = [
     name: "15CM RED\n(Box: 10PCS)",
     price: 81,
     actualPrice: 100,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/fancymountain_image1_xs6t8x.jpg",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545487/30CM_LONG_1080_x_900_px_7_fswq2c.png",
     category: "Sparklers",
     offer: "-19% OFF"
   },
@@ -59,7 +59,7 @@ const products = [
     name: "15CM ELECTRIC\n(Box: 10PCS)",
     price: 69,
     actualPrice: 100,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545486/30CM_LONG_1080_x_900_px_8_r7efhh.png",
     category: "Sparklers",
     offer: "-31% OFF"
   },
@@ -68,7 +68,7 @@ const products = [
     name: "12CM CRACKLING\n(Box: 10PCS)",
     price: 48,
     actualPrice: 80,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545487/30CM_LONG_1080_x_900_px_9_knyhf8.png",
     category: "Sparklers",
     offer: "-40% OFF"
   },
@@ -77,7 +77,7 @@ const products = [
     name: "10CM ELECTRIC\n(Box: 10PCS)",
     price: 46,
     actualPrice: 70,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545486/30CM_LONG_1080_x_900_px_10_dmzqx5.png",
     category: "Sparklers",
     offer: "-35% OFF"
   },
@@ -86,7 +86,7 @@ const products = [
     name: "7CM CRACKLING\n(Box: 10PCS)",
     price: 35,
     actualPrice: 60,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545485/30CM_LONG_1080_x_900_px_11_zyyhgo.png",
     category: "Sparklers",
     offer: "-41% OFF"
   }
