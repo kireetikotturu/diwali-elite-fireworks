@@ -106,6 +106,7 @@ function Shop({ cart, setCart }) {
   const [loadingImages, setLoadingImages] = useState(true);
   const [progress, setProgress] = useState(0);
   const [fadeIn, setFadeIn] = useState(false);
+  const [switching, setSwitching] = useState(false); // for transitions
 
   // Preload images for categories and products (initial load and on category change)
   useEffect(() => {
@@ -137,6 +138,8 @@ function Shop({ cart, setCart }) {
         setProgress(100);
         setTimeout(() => {
           setLoadingImages(false);
+          setSwitching(true);
+          setTimeout(() => setSwitching(false), 600);
           setFadeIn(true);
           setTimeout(() => setFadeIn(false), 700);
         }, 340);
@@ -177,6 +180,8 @@ function Shop({ cart, setCart }) {
       if (selectedCategory) {
         event.preventDefault();
         setSelectedCategory(null);
+        setSwitching(true);
+        setTimeout(() => setSwitching(false), 600);
         setFadeIn(true);
         setTimeout(() => setFadeIn(false), 700);
         window.history.pushState(null, "");
@@ -196,6 +201,8 @@ function Shop({ cart, setCart }) {
 
   const handleCategorySelect = (catName) => {
     setSelectedCategory(catName);
+    setSwitching(true);
+    setTimeout(() => setSwitching(false), 600);
     setFadeIn(true);
     setTimeout(() => setFadeIn(false), 700);
     window.history.pushState({ category: catName }, "");
@@ -204,6 +211,8 @@ function Shop({ cart, setCart }) {
 
   const handleBackToCategories = () => {
     setSelectedCategory(null);
+    setSwitching(true);
+    setTimeout(() => setSwitching(false), 600);
     setFadeIn(true);
     setTimeout(() => setFadeIn(false), 700);
     setTimeout(scrollToTop, 0);
@@ -230,7 +239,7 @@ function Shop({ cart, setCart }) {
     .filter((product) => product.category === selectedCategory)
     .slice(0, 20);
 
-  // Loader component (progress bar at top, spinner, and firework animation)
+  // Loader component (progress bar at top, animated "Loading..." dots)
   const ShopLoader = () => (
     <div className="shop-loader-root">
       <div className="shop-loader-bar-bg">
@@ -242,22 +251,22 @@ function Shop({ cart, setCart }) {
           }}
         />
       </div>
-      <div className="shop-loader-spinner"></div>
       <div className="shop-loader-text">
-         Loading... {progress}%
+        Loading<span className="loader-dots"><span>.</span><span>.</span><span>.</span></span> {progress}%
       </div>
     </div>
   );
 
-  // Fade-in class for smooth transition
+  // Fade-in class for smooth transition and switching transition for section changes
   const fadeClass = fadeIn ? "shop-fade-in" : "";
+  const switchClass = switching ? "shop-switching" : "";
 
   if (loadingImages) {
     return <ShopLoader />;
   }
 
   return (
-    <div className={`shop-root ${fadeClass}`}>
+    <div className={`shop-root ${fadeClass} ${switchClass}`}>
       {!selectedCategory ? (
         <>
           <h2 className="shop-title">Shop by Product</h2>

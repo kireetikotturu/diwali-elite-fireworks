@@ -524,81 +524,92 @@
     }
 }
 
+/* --- Loading Bar and Animated Dots Loader --- */
 .shop-loader-root {
-    width: 100vw;
-    min-height: 100vh;
-    background: #fffbe7;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 0; top: 0;
-    z-index: 9999;
-  }
-  
-  .shop-loader-bar-bg {
-    width: 100vw;
-    height: 4px;
-    background: #fffbe7;
-    position: fixed;
-    left: 0; top: 0;
-    z-index: 10000;
-    box-shadow: 0 2px 8px #ffd70044;
-  }
-  
-  .shop-loader-bar {
-    height: 100%;
-    background: #ffd700;
-    border-radius: 0 13px 13px 0;
-    transition: width 0.3s cubic-bezier(.77,0,.18,1);
-  }
-  
-  .shop-loader-spinner {
-    margin-top: 60px;
-    width: 44px;
-    height: 44px;
-    border: 5px solid #ffd70077;
-    border-top: 5px solid #6342a7;
-    border-radius: 50%;
-    animation: shopSpin 0.85s linear infinite;
-    box-shadow: 0 2px 10px #ffd70022;
-  }
-  
-  @keyframes shopSpin {
-    0% { transform: rotate(0deg);}
-    100% { transform: rotate(360deg);}
-  }
-  
-  .shop-loader-text {
-    margin-top: 32px;
-    font-size: 1.0rem;
-    color: #6342a7;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    background: #ffd70022;
-    padding: 0.7rem 1.2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px #e040fb22;
-    text-align: center;
-    animation: fadeInLoaderText 0.6s;
-  }
-  
-  @keyframes fadeInLoaderText {
-    from { opacity: 0; transform: translateY(40px);}
-    to { opacity: 1; transform: translateY(0);}
-  }
-  
-  .shop-loader-animation {
-    margin-top: 24px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .shop-fade-in {
-    animation: shopFadeIn 0.7s cubic-bezier(.77,0,.18,1);
-  }
-  @keyframes shopFadeIn {
-    from { opacity: 0; transform: scale(0.98);}
-    to { opacity: 1; transform: scale(1);}
-  }
+  width: 100vw;
+  min-height: 100vh;
+  background: #fffbe7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0; top: 0;
+  z-index: 9999;
+}
+
+.shop-loader-bar-bg {
+  width: 100vw;
+  height: 4px;
+  background: #fffbe7;
+  position: fixed;
+  left: 0; top: 0;
+  z-index: 10000;
+  box-shadow: 0 2px 8px #ffd70044;
+}
+
+.shop-loader-bar {
+  height: 100%;
+  background: #ffd700;
+  border-radius: 0 13px 13px 0;
+  transition: width 0.3s cubic-bezier(.77,0,.18,1);
+}
+
+.shop-loader-text {
+  margin-top: 48px;
+  font-size: 0.95rem;
+  color: #6342a7;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  background: #ffd70022;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px #e040fb22;
+  text-align: center;
+  animation: fadeInLoaderText 0.6s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@keyframes fadeInLoaderText {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Animated Loading... dots */
+.loader-dots {
+  display: inline-block;
+  margin-left: 4px;
+}
+.loader-dots span {
+  display: inline-block;
+  opacity: 0.3;
+  font-weight: bold;
+  font-size: 1.0em;
+  animation: loaderDotPulse 1.2s infinite;
+}
+.loader-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loader-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes loaderDotPulse {
+  0%, 80%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
+}
+
+/* Fade-in for main shop content */
+.shop-fade-in {
+  animation: shopFadeIn 0.7s cubic-bezier(.77,0,.18,1);
+}
+@keyframes shopFadeIn {
+  from { opacity: 0; transform: scale(0.98);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+/* Smooth switching animation for section changes */
+.shop-switching {
+  animation: shopSwitchAnim 0.6s cubic-bezier(.77,0,.18,1);
+}
+@keyframes shopSwitchAnim {
+  from { opacity: 0; transform: translateY(28px);}
+  to { opacity: 1; transform: translateY(0);}
+}
