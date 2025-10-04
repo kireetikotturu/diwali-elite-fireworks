@@ -1,20 +1,21 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Shop.css";
 
+// Local images for categories and products in public/ directory
 const categories = [
-  { name: "Sparklers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759383446/sparklers-c-image_oyw1st.jpg" },
-  { name: "Wheels/Buchakkar", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759386052/bhuchakkar-c-image_vaxxqi.png" },
-  { name: "Flower Pots", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759385749/flowerpot-c-image_poai45.png" },
-  { name: "Threads/Pencils", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759401227/Untitled_design_3_larfnm.png" },
-  { name: "ROCKETS", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759396971/rockets-c-image_hgzqvd.png" },
-  { name: "Bombs", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759388414/bomb-c-image_x9scey.png" },
-  { name: "Lal Mirchi (Per Bundle)", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759391010/lalmirchi-c-image_qurouc.png" },
-  { name: "Mirchi Packets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759395609/mirchi-packets-image_qyvad3.jpg" },
-  { name: "Elite Fancy Series", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759386943/elitefancy-c-image_t2trdy.png" },
-  { name: "SHORTS", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759397199/shorts-c-image_vwv2ji.png" },
-  { name: "Garland Crackers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759398165/Untitled_design_1_hrp6wk.png" },
-  { name: "Others", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759398909/Untitled_design_2_sd53ui.png" },
-  { name: "Combo Offers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg" }
+  { name: "Sparklers", image: "/category-image1.png" },
+  { name: "Wheels/Buchakkar", image: "/category-image2.png" },
+  { name: "Flower Pots", image: "/category-image3.png" },
+  { name: "Threads/Pencils", image: "/category-image4.png" },
+  { name: "ROCKETS", image: "/category-image5.png" },
+  { name: "Bombs", image: "/category-image6.png" },
+  { name: "Lal Mirchi (Per Bundle)", image: "/category-image7.png" },
+  { name: "Mirchi Packets", image: "/category-image8.png" },
+  { name: "Elite Fancy Series", image: "/category-image9.png" },
+  { name: "SHORTS", image: "/category-image10.png" },
+  { name: "Garland Crackers", image: "/category-image11.png" },
+  { name: "Others", image: "/category-image12.png" },
+  { name: "Combo Offers", image: "/category-image13.png" }
 ];
 
 const products = [
@@ -23,7 +24,7 @@ const products = [
     name: "75CM ELECTRIC\n(Box: 10PCS)",
     price: 322,
     actualPrice: 500,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759546058/30CM_LONG_1080_x_900_px_12_nynve7.png",
+    image: "/product-image1.png",
     category: "Sparklers",
     offer: "-36% OFF"
   },
@@ -32,7 +33,7 @@ const products = [
     name: "30CM ELECTRIC\n(Box: 10PCS)",
     price: 58,
     actualPrice: 100,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759543420/30CM_LONG_1080_x_900_px_4_am0r2w.png",
+    image: "/product-image2.png",
     category: "Sparklers",
     offer: "-42% OFF"
   },
@@ -41,7 +42,7 @@ const products = [
     name: "30CM CRACKLING\n(Box: 10PCS)",
     price: 62,
     actualPrice: 120,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759544350/30CM_LONG_1080_x_900_px_6_vvxdmb.png",
+    image: "/product-image3.png",
     category: "Sparklers",
     offer: "-49% OFF"
   },
@@ -50,7 +51,7 @@ const products = [
     name: "15CM RED\n(Box: 10PCS)",
     price: 81,
     actualPrice: 100,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545487/30CM_LONG_1080_x_900_px_7_fswq2c.png",
+    image: "/product-image4.png",
     category: "Sparklers",
     offer: "-19% OFF"
   },
@@ -59,7 +60,7 @@ const products = [
     name: "15CM ELECTRIC\n(Box: 10PCS)",
     price: 69,
     actualPrice: 100,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545486/30CM_LONG_1080_x_900_px_8_r7efhh.png",
+    image: "/product-image5.png",
     category: "Sparklers",
     offer: "-31% OFF"
   },
@@ -68,7 +69,7 @@ const products = [
     name: "12CM CRACKLING\n(Box: 10PCS)",
     price: 48,
     actualPrice: 80,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545487/30CM_LONG_1080_x_900_px_9_knyhf8.png",
+    image: "/product-image6.png",
     category: "Sparklers",
     offer: "-40% OFF"
   },
@@ -77,7 +78,7 @@ const products = [
     name: "10CM ELECTRIC\n(Box: 10PCS)",
     price: 46,
     actualPrice: 70,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545486/30CM_LONG_1080_x_900_px_10_dmzqx5.png",
+    image: "/product-image7.png",
     category: "Sparklers",
     offer: "-35% OFF"
   },
@@ -86,7 +87,7 @@ const products = [
     name: "7CM CRACKLING\n(Box: 10PCS)",
     price: 35,
     actualPrice: 60,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545485/30CM_LONG_1080_x_900_px_11_zyyhgo.png",
+    image: "/product-image8.png",
     category: "Sparklers",
     offer: "-41% OFF"
   }
@@ -167,7 +168,7 @@ function Shop({ cart, setCart }) {
         <>
           <h2 className="shop-title">Shop by Product</h2>
           <div className="category-cards-list">
-            {categories.map((cat) => (
+            {categories.map((cat, idx) => (
               <div
                 className="category-card"
                 key={cat.name}
@@ -181,6 +182,7 @@ function Shop({ cart, setCart }) {
                     src={cat.image}
                     alt={cat.name}
                     className="category-card-img"
+                    onError={e => { e.target.src = "/category-image1.png"; }}
                   />
                 </div>
                 <span className="category-card-name">{cat.name}</span>
@@ -218,7 +220,7 @@ function Shop({ cart, setCart }) {
           </div>
           <div className="shop-list">
             {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
+              filteredProducts.map((product, idx) => (
                 <div className="shop-item shop-square-card" key={product.id}>
                   <span className="shop-offer-badge">{product.offer}</span>
                   <div className="shop-img-wrap-square">
@@ -226,6 +228,7 @@ function Shop({ cart, setCart }) {
                       src={product.image}
                       alt={product.name}
                       className="shop-item-img-square"
+                      onError={e => { e.target.src = "/product-image1.png"; }}
                     />
                   </div>
                   <div className="shop-item-details">
