@@ -3,7 +3,7 @@ import "./Shop.css";
 
 // Local images for categories and products in public/ directory
 const categories = [
-  { name: "Sparklers", image: "/category-image1.png" },
+  { name: "Sparklers", image: "/category-image1.jpg" },
   { name: "Wheels/Buchakkar", image: "/category-image2.png" },
   { name: "Flower Pots", image: "/category-image3.png" },
   { name: "Threads/Pencils", image: "/category-image4.png" },
@@ -15,7 +15,7 @@ const categories = [
   { name: "SHORTS", image: "/category-image10.png" },
   { name: "Garland Crackers", image: "/category-image11.png" },
   { name: "Others", image: "/category-image12.png" },
-  { name: "Combo Offers", image: "/category-image13.png" }
+  { name: "Combo Offers", image: "/category-image13.jpg" }
 ];
 
 const products = [
