@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const { Resend } = require("resend");
+const nodemailer = require("nodemailer");
 
 const app = express();
 
@@ -20,8 +20,14 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
-// Initialize Resend with your API key from environment variables
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Nodemailer transporter with Gmail and app password from .env
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER, // your gmail address from .env
+    pass: process.env.EMAIL_PASS, // your 16-digit app password from .env
+  },
+});
 
 // Coupon POST endpoint
 app.post("/api/coupons", async (req, res) => {
@@ -29,16 +35,16 @@ app.post("/api/coupons", async (req, res) => {
   const { phone } = req.body;
 
   try {
-    const response = await resend.emails.send({
-      from: 'Diwali Elite Fireworks <onboarding@resend.dev>', // Default Resend sender
-      to: 'venombar122@gmail.com',
-      subject: 'New Coupon Request',
+    const info = await transporter.sendMail({
+      from: `"Diwali Elite Fireworks" <${process.env.EMAIL_USER}>`,
+      to: "elitefireworksindia@gmail.com",
+      subject: "New Coupon Request",
       html: `<p>User requested coupon: <strong>${phone}</strong></p>`
     });
-    console.log("Resend API response [Coupon]:", response);
+    console.log("Nodemailer response [Coupon]:", info);
     res.json({ success: true });
   } catch (error) {
-    console.error("Email send error [Coupon]:", error);
+    console.error("Nodemailer send error [Coupon]:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
@@ -54,9 +60,9 @@ app.post("/api/order", async (req, res) => {
   ).join("") || "";
 
   try {
-    const response = await resend.emails.send({
-      from: 'Diwali Elite Fireworks <onboarding@resend.dev>',
-      to: 'venombar122@gmail.com',
+    const info = await transporter.sendMail({
+      from: `"Diwali Elite Fireworks" <${process.env.EMAIL_USER}>`,
+      to: "elitefireworksindia@gmail.com",
       subject: `New Order Received: ${orderId}`,
       html: `
         <h2>New Order Placed</h2>
@@ -71,10 +77,10 @@ app.post("/api/order", async (req, res) => {
         <ul>${cartItems}</ul>
       `
     });
-    console.log("Resend API response [Order]:", response);
+    console.log("Nodemailer response [Order]:", info);
     res.json({ success: true });
   } catch (error) {
-    console.error("Email send error [Order]:", error);
+    console.error("Nodemailer send error [Order]:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
@@ -85,10 +91,10 @@ app.post("/api/contact", async (req, res) => {
   const { name, phone, message } = req.body;
 
   try {
-    const response = await resend.emails.send({
-      from: 'Diwali Elite Fireworks <onboarding@resend.dev>',
-      to: 'venombar122@gmail.com',
-      subject: 'New Contact Form Submission',
+    const info = await transporter.sendMail({
+      from: `"Diwali Elite Fireworks" <${process.env.EMAIL_USER}>`,
+      to: "elitefireworksindia@gmail.com",
+      subject: "New Contact Form Submission",
       html: `
         <h2>New Contact Form Submission</h2>
         <p><b>Name:</b> ${name}</p>
@@ -97,10 +103,10 @@ app.post("/api/contact", async (req, res) => {
         <p>${message}</p>
       `
     });
-    console.log("Resend API response [Contact]:", response);
+    console.log("Nodemailer response [Contact]:", info);
     res.json({ success: true });
   } catch (error) {
-    console.error("Email send error [Contact]:", error);
+    console.error("Nodemailer send error [Contact]:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
