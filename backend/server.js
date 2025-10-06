@@ -6,7 +6,10 @@ const { Resend } = require("resend");
 
 const app = express();
 
-// Restrict CORS to your Netlify frontend for security
+// Log that the app has started
+console.log("App started, awaiting requests...");
+
+// Restrict CORS to your Netlify frontend and localhost for development
 app.use(cors({
   origin: [
     "https://diwali-elite-fireworks.netlify.app",
@@ -15,7 +18,6 @@ app.use(cors({
   methods: ["GET", "POST"]
 }));
 
-
 app.use(bodyParser.json());
 
 // Initialize Resend with your API key from environment variables
@@ -23,24 +25,26 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Coupon POST endpoint
 app.post("/api/coupons", async (req, res) => {
+  console.log("Coupon request received:", req.body);
   const { phone } = req.body;
 
   try {
     await resend.emails.send({
-      from: 'Diwali Elite Fireworks <onboarding@resend.dev>', // You can change this after verifying your domain with Resend
-      to: 'elitefireworksindia@gmail.com', // <-- CHANGED recipient email
+      from: 'Diwali Elite Fireworks <onboarding@resend.dev>', // Default Resend sender
+      to: 'elitefireworksindia@gmail.com',
       subject: 'New Coupon Request',
       html: `<p>User requested coupon: <strong>${phone}</strong></p>`
     });
     res.json({ success: true });
   } catch (error) {
-    console.error("Email send error:", error);
+    console.error("Email send error [Coupon]:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
 
 // Order POST endpoint
 app.post("/api/order", async (req, res) => {
+  console.log("Order request received:", req.body);
   const { orderId, name, phone, address, pincode, deliveryDate, cart, total } = req.body;
 
   const cartItems = cart.map(
@@ -50,7 +54,7 @@ app.post("/api/order", async (req, res) => {
   try {
     await resend.emails.send({
       from: 'Diwali Elite Fireworks <onboarding@resend.dev>',
-      to: 'elitefireworksindia@gmail.com', // <-- CHANGED recipient email
+      to: 'elitefireworksindia@gmail.com',
       subject: `New Order Received: ${orderId}`,
       html: `
         <h2>New Order Placed</h2>
@@ -67,19 +71,20 @@ app.post("/api/order", async (req, res) => {
     });
     res.json({ success: true });
   } catch (error) {
-    console.error("Email send error:", error);
+    console.error("Email send error [Order]:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
 
-// Contact POST endpoint (NEW)
+// Contact POST endpoint
 app.post("/api/contact", async (req, res) => {
+  console.log("Contact request received:", req.body);
   const { name, phone, message } = req.body;
 
   try {
     await resend.emails.send({
       from: 'Diwali Elite Fireworks <onboarding@resend.dev>',
-      to: 'elitefireworksindia@gmail.com', // <-- CHANGED recipient email
+      to: 'elitefireworksindia@gmail.com',
       subject: 'New Contact Form Submission',
       html: `
         <h2>New Contact Form Submission</h2>
@@ -91,7 +96,7 @@ app.post("/api/contact", async (req, res) => {
     });
     res.json({ success: true });
   } catch (error) {
-    console.error("Email send error:", error);
+    console.error("Email send error [Contact]:", error);
     res.status(500).json({ success: false, error: error.message });
   }
 });
