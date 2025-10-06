@@ -25,12 +25,12 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 async function sendEmail({ to, subject, html }) {
   try {
     const email = await resend.emails.send({
-      from: `Diwali Elite Fireworks <${process.env.FROM_EMAIL}>`,
+      from: 'Diwali Elite Fireworks <onboarding@resend.dev>', // Test mode sender
       to,
       subject,
       html,
     });
-    console.log("Resend email sent:", { to, subject });
+    console.log("Resend email sent:", { to, subject, status: email?.data?.status });
     return email;
   } catch (error) {
     console.error("Resend send error:", error);
@@ -44,12 +44,12 @@ app.post("/api/coupons", async (req, res) => {
   console.log("Coupon request received:", phone);
 
   try {
-    await sendEmail({
+    const emailResp = await sendEmail({
       to: "elitefireworksindia@gmail.com",
       subject: "New Coupon Request",
       html: `<p>User requested coupon: <strong>${phone}</strong></p>`
     });
-    res.json({ success: true, message: "Coupon request sent successfully" });
+    res.json({ success: true, message: "Coupon request sent successfully", resend: emailResp?.data });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -65,7 +65,7 @@ app.post("/api/order", async (req, res) => {
   ).join("") || "";
 
   try {
-    await sendEmail({
+    const emailResp = await sendEmail({
       to: "elitefireworksindia@gmail.com",
       subject: `New Order Received: ${orderId}`,
       html: `
@@ -81,7 +81,7 @@ app.post("/api/order", async (req, res) => {
         <ul>${cartItems}</ul>
       `
     });
-    res.json({ success: true, message: "Order email sent successfully" });
+    res.json({ success: true, message: "Order email sent successfully", resend: emailResp?.data });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
@@ -93,7 +93,7 @@ app.post("/api/contact", async (req, res) => {
   console.log("Contact request received:", name);
 
   try {
-    await sendEmail({
+    const emailResp = await sendEmail({
       to: "elitefireworksindia@gmail.com",
       subject: "New Contact Form Submission",
       html: `
@@ -104,7 +104,7 @@ app.post("/api/contact", async (req, res) => {
         <p>${message}</p>
       `
     });
-    res.json({ success: true, message: "Contact form email sent successfully" });
+    res.json({ success: true, message: "Contact form email sent successfully", resend: emailResp?.data });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
