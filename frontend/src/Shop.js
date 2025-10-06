@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Shop.css";
+import { useLocation } from "react-router-dom";
 
 // Cloudinary images for categories and products
 const categories = [
@@ -903,7 +904,7 @@ const products = [
     id: 111,
     name: "Diwali Elite Combo\nComplete Family Pack...",
     price: 5000,
-    actualPrice: 1450,
+    actualPrice: 14500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759684436/30CM_LONG_1080_x_900_px_-_2025-10-05T224332.535_oovcoo.png",
     category: "Combo Offers",
   }
@@ -921,9 +922,12 @@ const productsWithOffers = products.map((p) => {
 const PROGRESS_COLOR = "#ffd700";
 
 function Shop({ cart, setCart }) {
-  const [selectedCategory, setSelectedCategory] = useState(() => {
-    return localStorage.getItem("selectedCategory") || null;
-  });
+  const location = useLocation();
+
+const [selectedCategory, setSelectedCategory] = useState(() => {
+  if (location?.state?.resetShop) return null;
+  return localStorage.getItem("selectedCategory") || null;
+});
   const [addedId, setAddedId] = useState(null);
   const addedTimeoutRef = useRef(null);
 

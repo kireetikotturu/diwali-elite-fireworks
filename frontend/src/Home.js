@@ -113,8 +113,8 @@ function Home() {
 
   // --- Shop Now always goes to Categories page ---
   const handleShopNow = () => {
-    navigate("/shop"); // always go to categories, not items/products
-  };
+  navigate("/shop", { state: { resetShop: true } }); // <-- NEW
+};
 
   const handleCopyCoupon = () => {
     navigator.clipboard.writeText(couponCode);
