@@ -7,6 +7,7 @@ function Cart({ cart, setCart }) {
   const navigate = useNavigate();
   const [coupon, setCoupon] = useState("");
   const [couponApplied, setCouponApplied] = useState(false);
+  const [couponType, setCouponType] = useState(""); // NEW: track which coupon
   const [animCoupon, setAnimCoupon] = useState(false);
 
   // Quantity change logic
@@ -25,8 +26,10 @@ function Cart({ cart, setCart }) {
 
   // Coupon logic
   const handleCoupon = () => {
-    if (coupon.trim().toUpperCase() === "DIWALI0690") {
+    const code = coupon.trim().toUpperCase();
+    if (code === "DIWALI0690") {
       setCouponApplied(true);
+      setCouponType("20");
       setAnimCoupon(true);
       confetti({
         particleCount: 80,
@@ -37,18 +40,41 @@ function Cart({ cart, setCart }) {
         ticks: 90
       });
       setTimeout(() => setAnimCoupon(false), 1200);
+    } else if (code === "SPECIAL8762") {
+      setCouponApplied(true);
+      setCouponType("30");
+      setAnimCoupon(true);
+      confetti({
+        particleCount: 120,
+        spread: 70,
+        origin: { y: 0.7 },
+        colors: ["#ffd700", "#c47c00", "#e040fb"],
+        scalar: 1.25,
+        ticks: 120
+      });
+      setTimeout(() => setAnimCoupon(false), 1400);
     } else {
       alert("Invalid coupon code!");
     }
   };
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const discount = couponApplied ? Math.round(subtotal * 0.2) : 0;
+
+  // Updated discount logic
+  const discount = couponApplied
+    ? couponType === "30"
+      ? Math.round(subtotal * 0.3)
+      : Math.round(subtotal * 0.2)
+    : 0;
   const total = subtotal - discount;
 
   // Calculate per-item discount and price
   const getItemDiscount = (item) =>
-    couponApplied ? Math.round(item.price * item.qty * 0.2) : 0;
+    couponApplied
+      ? couponType === "30"
+        ? Math.round(item.price * item.qty * 0.3)
+        : Math.round(item.price * item.qty * 0.2)
+      : 0;
   const getItemNewPrice = (item) =>
     couponApplied
       ? item.price * item.qty - getItemDiscount(item)
@@ -183,7 +209,9 @@ function Cart({ cart, setCart }) {
             </button>
             {couponApplied && (
               <span className="cart-coupon-applied">
-                20% OFF applied! 🎉
+                {couponType === "30"
+                  ? "30% OFF applied for special member! 🎉"
+                  : "20% OFF applied! 🎉"}
               </span>
             )}
           </div>
