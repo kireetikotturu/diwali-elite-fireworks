@@ -128,7 +128,7 @@ function Home() {
       <div className="notice-bar">
         <div className="notice-marquee">
           <span>
-            Buy orders of minimum ₹ 1000 to get more special discounts! Prices vary by
+            Free and Fast delivery across the Hyderabad city. Buy orders of minimum ₹ 1000 to get more special discounts! Prices vary by
             time, so order immediately if you see a hot deal don't miss out.
           </span>
         </div>
