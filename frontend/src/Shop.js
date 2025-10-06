@@ -22,7 +22,7 @@ const categories = [
 const products = [
   {
     id: 1,
-    name: "75CM ELECTRIC\n(Box: 10PCS)",
+    name: "75CM ELECTRIC\n",
     price: 322,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759546058/30CM_LONG_1080_x_900_px_12_nynve7.png",
@@ -30,7 +30,7 @@ const products = [
   },
   {
     id: 2,
-    name: "30CM ELECTRIC\n(Box: 10PCS)",
+    name: "30CM ELECTRIC\n",
     price: 58,
     actualPrice: 100,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759543420/30CM_LONG_1080_x_900_px_4_am0r2w.png",
@@ -38,7 +38,7 @@ const products = [
   },
   {
     id: 3,
-    name: "30CM CRACKLING\n(Box: 10PCS)",
+    name: "30CM CRACKLING\n",
     price: 62,
     actualPrice: 120,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759544350/30CM_LONG_1080_x_900_px_6_vvxdmb.png",
@@ -46,7 +46,7 @@ const products = [
   },
   {
     id: 4,
-    name: "15CM RED\n(Box: 10PCS)",
+    name: "15CM RED\n",
     price: 81,
     actualPrice: 100,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545487/30CM_LONG_1080_x_900_px_7_fswq2c.png",
@@ -54,7 +54,7 @@ const products = [
   },
   {
     id: 5,
-    name: "15CM ELECTRIC\n(Box: 10PCS)",
+    name: "15CM ELECTRIC\n",
     price: 69,
     actualPrice: 100,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545486/30CM_LONG_1080_x_900_px_8_r7efhh.png",
@@ -62,7 +62,7 @@ const products = [
   },
   {
     id: 6,
-    name: "12CM CRACKLING\n(Box: 10PCS)",
+    name: "12CM CRACKLING\n",
     price: 48,
     actualPrice: 80,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545487/30CM_LONG_1080_x_900_px_9_knyhf8.png",
@@ -70,7 +70,7 @@ const products = [
   },
   {
     id: 7,
-    name: "10CM ELECTRIC\n(Box: 10PCS)",
+    name: "10CM ELECTRIC\n",
     price: 46,
     actualPrice: 70,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545486/30CM_LONG_1080_x_900_px_10_dmzqx5.png",
@@ -78,7 +78,7 @@ const products = [
   },
   {
     id: 8,
-    name: "7CM CRACKLING\n(Box: 10PCS)",
+    name: "7CM CRACKLING\n",
     price: 35,
     actualPrice: 60,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759545485/30CM_LONG_1080_x_900_px_11_zyyhgo.png",
@@ -86,7 +86,7 @@ const products = [
   },
   {
     id: 9,
-    name: " JIL-JIL\n(Box: 10PCS)",
+    name: " JIL-JIL\n",
     price: 575,
     actualPrice: 600,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759649265/30CM_LONG_1080_x_900_px_13_mun1k0.png",
@@ -94,7 +94,7 @@ const products = [
   },
   {
     id: 10,
-    name: "ULTRA COLOR PENCILS\n(Box: 10PCS)",
+    name: "ULTRA COLOR PENCILS\n",
     price: 253,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759649266/30CM_LONG_1080_x_900_px_14_mkbjxv.png",
@@ -102,7 +102,7 @@ const products = [
   },
   {
     id: 11,
-    name: "AMAZING PENCILS\n(Box: 10PCS)",
+    name: "AMAZING PENCILS\n",
     price: 207,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759649647/30CM_LONG_1080_x_900_px_15_spet2h.png",
@@ -110,7 +110,7 @@ const products = [
   },
   {
     id: 12,
-    name: "TRIBE THREDS\n(Box: 10PCS)",
+    name: "TRIBE THREDS\n",
     price: 126,
     actualPrice: 250,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759649646/30CM_LONG_1080_x_900_px_16_fodazn.png",
@@ -118,7 +118,7 @@ const products = [
   },
   {
     id: 13,
-    name: "CARNATION PENCILS\n(Box: 10PCS)",
+    name: "CARNATION PENCILS\n",
     price: 218,
     actualPrice: 300,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759649981/30CM_LONG_1080_x_900_px_17_suebtx.png",
@@ -126,7 +126,7 @@ const products = [
   },
   {
     id: 14,
-    name: "BIG TWINKLE STAR\n(Box: 10PCS)",
+    name: "BIG TWINKLE STAR\n",
     price: 115,
     actualPrice: 250,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759649981/30CM_LONG_1080_x_900_px_19_pctujc.png",
@@ -134,7 +134,7 @@ const products = [
   },
   {
     id: 15,
-    name: "SMALL TWINKLE STAR\n(Box: 10PCS)",
+    name: "SMALL TWINKLE STAR\n",
     price: 92,
     actualPrice: 200,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759649980/30CM_LONG_1080_x_900_px_20_gtmpsr.png",
@@ -142,7 +142,7 @@ const products = [
   },
   {
     id: 16,
-    name: "SPECIAL CHAKKARS GRREN\n(Box: 10PCS)",
+    name: "SPECIAL CHAKKARS GRREN\n",
     price: 115,
     actualPrice: 200,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659079/30CM_LONG_1080_x_900_px_22_gpqjhy.png",
@@ -150,7 +150,7 @@ const products = [
   },
   {
     id: 17,
-    name: "BIG VIOLET CHAKKARS\n(Box: 10PCS)",
+    name: "BIG VIOLET CHAKKARS\n",
     price: 345,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659514/30CM_LONG_1080_x_900_px_23_qmxcdf.png",
@@ -158,7 +158,7 @@ const products = [
   },
   {
     id: 18,
-    name: "SMALL VIOLET CHAKKARS\n(Box: 10PCS)",
+    name: "SMALL VIOLET CHAKKARS\n",
     price: 172,
     actualPrice: 300,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659514/30CM_LONG_1080_x_900_px_24_pkzdn7.png",
@@ -166,7 +166,7 @@ const products = [
   },
   {
     id: 19,
-    name: "PALAK WHEEL\n(Box: 10PCS)",
+    name: "PALAK WHEEL\n",
     price: 414,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659513/30CM_LONG_1080_x_900_px_25_mpgtus.png",
@@ -174,7 +174,7 @@ const products = [
   },
   {
     id: 20,
-    name: "VIOLET SPINNERS\n(Box: 10PCS)",
+    name: "VIOLET SPINNERS\n",
     price: 345,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659514/30CM_LONG_1080_x_900_px_26_puklbg.png",
@@ -182,7 +182,7 @@ const products = [
   },
   {
     id: 21,
-    name: "CHAKKAR DELUX\n(Box: 10PCS)",
+    name: "CHAKKAR DELUX\n",
     price: 299,
     actualPrice: 380,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659512/30CM_LONG_1080_x_900_px_27_dmpgn2.png",
@@ -190,7 +190,7 @@ const products = [
   },
   {
     id: 22,
-    name: "CHAKKAR DELUX COLOR\n(Box: 10PCS)",
+    name: "CHAKKAR DELUX COLOR\n",
     price: 287,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659512/30CM_LONG_1080_x_900_px_28_dgjlvq.png",
@@ -198,7 +198,7 @@ const products = [
   },
   {
     id: 23,
-    name: "RIO WHEELS\n(Box: 10PCS)",
+    name: "RIO WHEELS\n",
     price: 391,
     actualPrice: 550,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659511/30CM_LONG_1080_x_900_px_29_dogpjh.png",
@@ -206,7 +206,7 @@ const products = [
   },
   {
     id: 24,
-    name: "JOKE WHEELS\n(Box: 10PCS)",
+    name: "JOKE WHEELS\n",
     price: 368,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659511/30CM_LONG_1080_x_900_px_29_dogpjh.png",
@@ -214,7 +214,7 @@ const products = [
   },
   {
     id: 25,
-    name: "MTP ASHOKA CHAKKARS SPECIAL\n(Box: 10PCS)",
+    name: "MTP ASHOKA CHAKKARS SPECIAL\n",
     price: 184,
     actualPrice: 220,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659515/30CM_LONG_1080_x_900_px_30_hh3fxi.png",
@@ -222,7 +222,7 @@ const products = [
   },
   {
     id: 26,
-    name: "MTP CHAKKAR DELUX\n(Box: 10PCS)",
+    name: "MTP CHAKKAR DELUX\n",
     price: 230,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659520/30CM_LONG_1080_x_900_px_31_yycpgp.png",
@@ -230,7 +230,7 @@ const products = [
   },
   {
     id: 27,
-    name: "COLOR PINJORE (XL)\n(Box: 10PCS)",
+    name: "COLOR PINJORE (XL)\n",
     price: 828,
     actualPrice: 900,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659513/30CM_LONG_1080_x_900_px_32_wfk9wg.png",
@@ -238,7 +238,7 @@ const products = [
   },
   {
     id: 28,
-    name: "TALI COLOR KOTI\n(Box: 10PCS)",
+    name: "TALI COLOR KOTI\n",
     price: 437,
     actualPrice: 600,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659512/30CM_LONG_1080_x_900_px_33_wmtder.png",
@@ -246,7 +246,7 @@ const products = [
   },
   {
     id: 29,
-    name: "VARNAJAL\n(Box: 10PCS)",
+    name: "VARNAJAL\n",
     price: 782,
     actualPrice: 850,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659510/30CM_LONG_1080_x_900_px_34_ea1uun.png",
@@ -254,7 +254,7 @@ const products = [
   },
   {
     id: 30,
-    name: "MEGA COLOR KOTI\n(Box: 10PCS)",
+    name: "MEGA COLOR KOTI\n",
     price: 552,
     actualPrice: 700,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659511/30CM_LONG_1080_x_900_px_35_oc4fst.png",
@@ -262,7 +262,7 @@ const products = [
   },
   {
     id: 31,
-    name: "CARNIVAL\n(Box: 10PCS)",
+    name: "CARNIVAL\n",
     price: 414,
     actualPrice: 600,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659539/30CM_LONG_1080_x_900_px_36_y3ckow.png",
@@ -270,7 +270,7 @@ const products = [
   },
   {
     id: 32,
-    name: "FLOWER DELUX\n(Box: 10PCS)",
+    name: "FLOWER DELUX\n",
     price: 162,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659534/30CM_LONG_1080_x_900_px_37_xeisu0.png",
@@ -278,7 +278,7 @@ const products = [
   },
   {
     id: 33,
-    name: "ASHOKA FLOWER\n(Box: 10PCS)",
+    name: "ASHOKA FLOWER\n",
     price: 172,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659533/30CM_LONG_1080_x_900_px_38_hafpo1.png",
@@ -286,7 +286,7 @@ const products = [
   },
   {
     id: 34,
-    name: "ASHOKA COLOR\n(Box: 10PCS)",
+    name: "ASHOKA COLOR\n",
     price: 172,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659533/30CM_LONG_1080_x_900_px_39_yhylow.png",
@@ -294,7 +294,7 @@ const products = [
   },
   {
     id: 35,
-    name: "SPECIAL FLOWER\n(Box: 10PCS)",
+    name: "SPECIAL FLOWER\n",
     price: 126,
     actualPrice: 250,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659534/30CM_LONG_1080_x_900_px_40_qrasc5.png",
@@ -302,7 +302,7 @@ const products = [
   },
   {
     id: 36,
-    name: "SMALL FLOWER\n(Box: 10PCS)",
+    name: "SMALL FLOWER\n",
     price: 80,
     actualPrice: 200,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659532/30CM_LONG_1080_x_900_px_41_iy37co.png",
@@ -310,7 +310,7 @@ const products = [
   },
   {
     id: 37,
-    name: "RED STAR FLOWER POTS\n(Box: 10PCS)",
+    name: "RED STAR FLOWER POTS\n",
     price: 736,
     actualPrice: 1000,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659526/30CM_LONG_1080_x_900_px_42_oaorlv.png",
@@ -318,7 +318,7 @@ const products = [
   },
   {
     id: 38,
-    name: "JASMINE FLOWER POTS\n(Box: 10PCS)",
+    name: "JASMINE FLOWER POTS\n",
     price: 575,
     actualPrice: 800,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659526/30CM_LONG_1080_x_900_px_43_yg678x.png",
@@ -326,7 +326,7 @@ const products = [
   },
   {
     id: 39,
-    name: "AYANN SNOW PATROL (1 UNIT)\n(Box: 10PCS)",
+    name: "AYANN SNOW PATROL (1 UNIT)\n",
     price: 126,
     actualPrice: 200,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659525/30CM_LONG_1080_x_900_px_44_hbj2oh.png",
@@ -334,7 +334,7 @@ const products = [
   },
   {
     id: 40,
-    name: "RANGOLI\n(Box: 10PCS)",
+    name: "RANGOLI\n",
     price: 506,
     actualPrice: 800,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659525/30CM_LONG_1080_x_900_px_45_zf0o4h.png",
@@ -342,7 +342,7 @@ const products = [
   },
   {
     id: 41,
-    name: "MTP BIG FLOWER POTS\n(Box: 10PCS)",
+    name: "MTP BIG FLOWER POTS\n",
     price: 184,
     actualPrice: 220,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659528/30CM_LONG_1080_x_900_px_46_o36xlg.png",
@@ -350,7 +350,7 @@ const products = [
   },
   {
     id: 42,
-    name: "MTP SMALL FLOWER POTS\n(Box: 10PCS)",
+    name: "MTP SMALL FLOWER POTS\n",
     price: 103,
     actualPrice: 180,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759659525/30CM_LONG_1080_x_900_px_47_sl7zen.png",
@@ -358,7 +358,7 @@ const products = [
   },
   {
     id: 43,
-    name: "MAGIC SHOT(KIT-KAT)\n(Box: 10PCS)",
+    name: "MAGIC SHOT(KIT-KAT)\n",
     price: 39,
     actualPrice: 80,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664712/30CM_LONG_1080_x_900_px_48_io7ijb.png",
@@ -366,7 +366,7 @@ const products = [
   },
   {
     id: 44,
-    name: "POPCORN\n(Box: 10PCS)",
+    name: "POPCORN\n",
     price: 195,
     actualPrice: 300,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664707/30CM_LONG_1080_x_900_px_49_eznitw.png",
@@ -374,7 +374,7 @@ const products = [
   },
   {
     id: 45,
-    name: "LOTUS\n(Box: 10PCS)",
+    name: "LOTUS\n",
     price: 391,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664706/30CM_LONG_1080_x_900_px_50_ubefxm.png",
@@ -382,7 +382,7 @@ const products = [
   },
   {
     id: 46,
-    name: "BUTTERFLY\n(Box: 10PCS)",
+    name: "BUTTERFLY\n",
     price: 138,
     actualPrice: 300,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664706/30CM_LONG_1080_x_900_px_51_okyess.png",
@@ -390,7 +390,7 @@ const products = [
   },
   {
     id: 47,
-    name: "SIREN\n(Box: 10PCS)",
+    name: "SIREN\n",
     price: 506,
     actualPrice: 660,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664706/30CM_LONG_1080_x_900_px_52_h7uk2n.png",
@@ -398,7 +398,7 @@ const products = [
   },
   {
     id: 48,
-    name: "JELLY BELLY\n(Box: 10PCS)",
+    name: "JELLY BELLY\n",
     price: 391,
     actualPrice: 400,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664705/30CM_LONG_1080_x_900_px_53_l0kgxn.png",
@@ -406,7 +406,7 @@ const products = [
   },
   {
     id: 49,
-    name: "TUTI-FROOTI\n(Box: 10PCS)",
+    name: "TUTI-FROOTI\n",
     price: 483,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664693/30CM_LONG_1080_x_900_px_54_pfigfn.png",
@@ -414,7 +414,7 @@ const products = [
   },
   {
     id: 50,
-    name: "SCOOPS\n(Box: 10PCS)",
+    name: "SCOOPS\n",
     price: 299,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664692/30CM_LONG_1080_x_900_px_55_sedzf9.png",
@@ -422,7 +422,7 @@ const products = [
   },
   {
     id: 51,
-    name: "SILVER MOON\n(Box: 10PCS)",
+    name: "SILVER MOON\n",
     price: 414,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664694/30CM_LONG_1080_x_900_px_56_gzrjpi.png",
@@ -430,7 +430,7 @@ const products = [
   },
   {
     id: 52,
-    name: "MAYAJAL\n(Box: 10PCS)",
+    name: "MAYAJAL\n",
     price: 368,
     actualPrice: 420,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664681/30CM_LONG_1080_x_900_px_57_aitrl5.png",
@@ -438,7 +438,7 @@ const products = [
   },
   {
     id: 53,
-    name: "LOLLI POP\n(Box: 10PCS)",
+    name: "LOLLI POP\n",
     price: 345,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664691/30CM_LONG_1080_x_900_px_58_upqsss.png",
@@ -446,7 +446,7 @@ const products = [
   },
   {
     id: 54,
-    name: "SMALL DRONE\n(Box: 10PCS)",
+    name: "SMALL DRONE\n",
     price: 368,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664683/30CM_LONG_1080_x_900_px_59_doqirm.png",
@@ -454,7 +454,7 @@ const products = [
   },
   {
     id: 55,
-    name: "BIG DRONE\n(Box: 10PCS)",
+    name: "BIG DRONE\n",
     price: 345,
     actualPrice: 420,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664656/30CM_LONG_1080_x_900_px_61_ww7i1o.png",
@@ -462,7 +462,7 @@ const products = [
   },
   {
     id: 56,
-    name: "HELICOPTER\n(Box: 10PCS)",
+    name: "HELICOPTER\n",
     price: 207,
     actualPrice: 300,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664661/30CM_LONG_1080_x_900_px_62_zauzi3.png",
@@ -470,7 +470,7 @@ const products = [
   },
   {
     id: 57,
-    name: "CHORI CHORI\n(Box: 10PCS)",
+    name: "CHORI CHORI\n",
     price: 379,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664656/30CM_LONG_1080_x_900_px_63_denyim.png",
@@ -478,7 +478,7 @@ const products = [
   },
   {
     id: 58,
-    name: "GOLDEN WARD\n(Box: 10PCS)",
+    name: "GOLDEN WARD\n",
     price: 322,
     actualPrice: 380,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664655/30CM_LONG_1080_x_900_px_64_anvgs8.png",
@@ -486,7 +486,7 @@ const products = [
   },
   {
     id: 59,
-    name: "FUNNY BUNNY\n(Box: 10PCS)",
+    name: "FUNNY BUNNY\n",
     price: 379,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664655/30CM_LONG_1080_x_900_px_65_vhdecr.png",
@@ -494,7 +494,7 @@ const products = [
   },
   {
     id: 60,
-    name: "PEACOCK\n(Box: 10PCS)",
+    name: "PEACOCK\n",
     price: 230,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759664655/30CM_LONG_1080_x_900_px_66_rb8w3k.png",
@@ -502,7 +502,7 @@ const products = [
   },
   {
     id: 61,
-    name: "SHAUGAN BIG(ATOM)\n(Box: 10PCS)",
+    name: "SHAUGAN BIG(ATOM)\n",
     price: 322,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759670010/30CM_LONG_1080_x_900_px_67_w94rhv.png",
@@ -510,7 +510,7 @@ const products = [
   },
   {
     id: 62,
-    name: "CLASSIC (ATOM)\n(Box: 10PCS)",
+    name: "CLASSIC (ATOM)\n",
     price: 172,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759670005/30CM_LONG_1080_x_900_px_68_ldttxk.png",
@@ -518,7 +518,7 @@ const products = [
   },
   {
     id: 63,
-    name: "KING KONG(ATOM)\n(Box: 10PCS)",
+    name: "KING KONG(ATOM)\n",
     price: 172,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759670004/30CM_LONG_1080_x_900_px_69_b0lv3t.png",
@@ -526,7 +526,7 @@ const products = [
   },
   {
     id: 64,
-    name: "HYDRO BOMB\n(Box: 10PCS)",
+    name: "HYDRO BOMB\n",
     price: 103,
     actualPrice: 200,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669992/30CM_LONG_1080_x_900_px_70_ufhybg.png",
@@ -534,7 +534,7 @@ const products = [
   },
   {
     id: 65,
-    name: "ATOM BOMB\n(Box: 10PCS)",
+    name: "ATOM BOMB\n",
     price: 69,
     actualPrice: 180,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669988/30CM_LONG_1080_x_900_px_71_z7u7nu.png",
@@ -542,7 +542,7 @@ const products = [
   },
   {
     id: 66,
-    name: "DORA MIRCHI\n(Box: 10PCS)",
+    name: "DORA MIRCHI\n",
     price: 294,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669983/30CM_LONG_1080_x_900_px_72_yl2sij.png",
@@ -550,7 +550,7 @@ const products = [
   },
   {
     id: 67,
-    name: "SMALL PARROT\n(Box: 10PCS)",
+    name: "SMALL PARROT\n",
     price: 276,
     actualPrice: 350,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669978/30CM_LONG_1080_x_900_px_73_higk3l.png",
@@ -558,7 +558,7 @@ const products = [
   },
   {
     id: 68,
-    name: "MEDIUM PARROT\n(Box: 10PCS)",
+    name: "MEDIUM PARROT\n",
     price: 276,
     actualPrice: 400,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669974/30CM_LONG_1080_x_900_px_74_mfhejn.png",
@@ -566,7 +566,7 @@ const products = [
   },
   {
     id: 69,
-    name: "HULK\n(Box: 10PCS)",
+    name: "HULK\n",
     price: 294,
     actualPrice: 400,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669973/30CM_LONG_1080_x_900_px_75_ymmqtf.png",
@@ -574,7 +574,7 @@ const products = [
   },
   {
     id: 70,
-    name: "CAPTAIN AMERICA\n(Box: 10PCS)",
+    name: "CAPTAIN AMERICA\n",
     price: 575,
     actualPrice: 700,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669962/30CM_LONG_1080_x_900_px_76_wzmzzb.png",
@@ -582,7 +582,7 @@ const products = [
   },
   {
     id: 71,
-    name: "LAXMI\n(Box: 10PCS)",
+    name: "LAXMI\n",
     price: 345,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669961/30CM_LONG_1080_x_900_px_77_inris1.png",
@@ -590,7 +590,7 @@ const products = [
   },
   {
     id: 72,
-    name: "TIGER\n(Box: 10PCS)",
+    name: "TIGER\n",
     price: 575,
     actualPrice: 700,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669961/30CM_LONG_1080_x_900_px_78_udfrix.png",
@@ -598,7 +598,7 @@ const products = [
   },
   {
     id: 73,
-    name: "2 SOUND\n(Box: 10PCS)",
+    name: "2 SOUND\n",
     price: 575,
     actualPrice: 700,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669928/30CM_LONG_1080_x_900_px_79_c0mmzs.png",
@@ -606,7 +606,7 @@ const products = [
   },
   {
     id: 74,
-    name: "3 SOUND\n(Box: 10PCS)",
+    name: "3 SOUND\n",
     price: 805,
     actualPrice: 900,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669928/30CM_LONG_1080_x_900_px_80_a8kn9l.png",
@@ -614,7 +614,7 @@ const products = [
   },
   {
     id: 75,
-    name: "ROMAN LAXMI\n(Box: 10PCS)",
+    name: "ROMAN LAXMI\n",
     price: 506,
     actualPrice: 600,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669927/30CM_LONG_1080_x_900_px_81_hnnd3v.png",
@@ -622,7 +622,7 @@ const products = [
   },
   {
     id: 76,
-    name: "28 CHORSA\n(Box: 10PCS)",
+    name: "28 CHORSA\n",
     price: 1150,
     actualPrice: 1500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669927/30CM_LONG_1080_x_900_px_85_livxt9.png",
@@ -630,7 +630,7 @@ const products = [
   },
   {
     id: 77,
-    name: "TIGER\n(Box: 10PCS)",
+    name: "TIGER\n",
     price: 80,
     actualPrice: 100,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759674229/30CM_LONG_1080_x_900_px_86_odpv1g.png",
@@ -638,7 +638,7 @@ const products = [
   },
   {
     id: 78,
-    name: "BOAT MIRCHI (100)\n(Box: 10PCS)",
+    name: "BOAT MIRCHI (100)\n",
     price: 50,
     actualPrice: 80,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759674229/30CM_LONG_1080_x_900_px_87_cvbnap.png",
@@ -646,7 +646,7 @@ const products = [
   },
   {
     id: 79,
-    name: "BOAT MIRCHI (50)\n(Box: 10PCS)",
+    name: "BOAT MIRCHI (50)\n",
     price: 32,
     actualPrice: 50,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759674228/30CM_LONG_1080_x_900_px_88_nb5ngw.png",
@@ -654,7 +654,7 @@ const products = [
   },
   {
     id: 80,
-    name: " BABY ROCKETS\n(Box: 10PCS)",
+    name: " BABY ROCKETS\n",
     price: 64,
     actualPrice: 120,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681095/30CM_LONG_1080_x_900_px_89_ot30se.png",
@@ -662,7 +662,7 @@ const products = [
   },
   {
     id: 81,
-    name: "ROCKET BOMB\n(Box: 10PCS)",
+    name: "ROCKET BOMB\n",
     price: 98,
     actualPrice: 300,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681095/30CM_LONG_1080_x_900_px_90_fhkhkn.png",
@@ -670,7 +670,7 @@ const products = [
   },
   {
     id: 82,
-    name: "ZITI CORNATION\n(Box: 10PCS)",
+    name: "ZITI CORNATION\n",
     price: 414,
     actualPrice: 650,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681093/30CM_LONG_1080_x_900_px_91_hks7yr.png",
@@ -678,7 +678,7 @@ const products = [
   },
   {
     id: 83,
-    name: "COSMIC ROCKET\n(Box: 10PCS)",
+    name: "COSMIC ROCKET\n",
     price: 333,
     actualPrice: 480,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681089/30CM_LONG_1080_x_900_px_92_kmuekl.png",
@@ -686,7 +686,7 @@ const products = [
   },
   {
     id: 84,
-    name: "3 SOUND ROCKET\n(Box: 10PCS)",
+    name: "3 SOUND ROCKET\n",
     price: 207,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681088/30CM_LONG_1080_x_900_px_93_ukgqqj.png",
@@ -694,7 +694,7 @@ const products = [
   },
   {
     id: 85,
-    name: "2 SOUND ROCKET\n(Box: 10PCS)",
+    name: "2 SOUND ROCKET\n",
     price: 195,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681084/30CM_LONG_1080_x_900_px_94_sx9hdt.png",
@@ -702,7 +702,7 @@ const products = [
   },
   {
     id: 86,
-    name: "LUNIK EXPRESS\n(Box: 10PCS)",
+    name: "LUNIK EXPRESS\n",
     price: 184,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681081/30CM_LONG_1080_x_900_px_95_jiit36.png",
@@ -710,7 +710,7 @@ const products = [
   },
   {
     id: 87,
-    name: "PANCHA AVATAR\n(Box: 10PCS)",
+    name: "PANCHA AVATAR\n",
     price: 299,
     actualPrice: 450,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681080/30CM_LONG_1080_x_900_px_96_ry3qu8.png",
@@ -718,7 +718,7 @@ const products = [
   },
   {
     id: 88,
-    name: "STAND UP\n(Box: 10PCS)",
+    name: "STAND UP\n",
     price: 368,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681076/30CM_LONG_1080_x_900_px_97_qipbme.png",
@@ -726,7 +726,7 @@ const products = [
   },
   {
     id: 89,
-    name: "TITO SPECIAL\n(Box: 10PCS)",
+    name: "TITO SPECIAL\n",
     price: 207,
     actualPrice: 320,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681074/30CM_LONG_1080_x_900_px_98_bbojha.png",
@@ -734,7 +734,7 @@ const products = [
   },
   {
     id: 90,
-    name: "1 SINGLE SHORTS\n(Box: 10PCS)",
+    name: "1 SINGLE SHORTS\n",
     price: 92,
     actualPrice: 200,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681069/30CM_LONG_1080_x_900_px_99_sczfqr.png",
@@ -742,7 +742,7 @@ const products = [
   },
   {
     id: 91,
-    name: "12 SHORTS\n(Box: 10PCS)",
+    name: "12 SHORTS\n",
     price: 287,
     actualPrice: 500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759681068/30CM_LONG_1080_x_900_px_100_ng7d6q.png",
@@ -750,7 +750,7 @@ const products = [
   },
   {
     id: 92,
-    name: "10 SHORTS\n(Box: 10PCS)",
+    name: "10 SHORTS\n",
     price: 230,
     actualPrice: 400,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682155/30CM_LONG_1080_x_900_px_101_-_2025-10-05T212030.713_ftlg5t.png",
@@ -758,7 +758,7 @@ const products = [
   },
   {
     id: 93,
-    name: "15 SHORTS\n(Box: 10PCS)",
+    name: "15 SHORTS\n",
     price: 552,
     actualPrice: 700,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682145/30CM_LONG_1080_x_900_px_102_-_2025-10-05T212147.392_b8vnpn.png",
@@ -766,7 +766,7 @@ const products = [
   },
   {
     id: 94,
-    name: "30 SHORTS\n(Box: 10PCS)",
+    name: "30 SHORTS\n",
     price: 828,
     actualPrice: 1100,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682143/30CM_LONG_1080_x_900_px_103_-_2025-10-05T212312.178_udh5bf.png",
@@ -774,7 +774,7 @@ const products = [
   },
   {
     id: 95,
-    name: "25 SHORTS\n(Box: 10PCS)",
+    name: "25 SHORTS\n",
     price: 368,
     actualPrice: 600,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682127/30CM_LONG_1080_x_900_px_104_-_2025-10-05T212432.105_yprtau.png",
@@ -782,7 +782,7 @@ const products = [
   },
   {
     id: 96,
-    name: "60 SHORTS\n(Box: 10PCS)",
+    name: "60 SHORTS\n",
     price: 1656,
     actualPrice: 2000,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682125/30CM_LONG_1080_x_900_px_105_-_2025-10-05T212614.046_rzrrso.png",
@@ -790,7 +790,7 @@ const products = [
   },
   {
     id: 97,
-    name: "120 SHORTS\n(Box: 10PCS)",
+    name: "120 SHORTS\n",
     price: 3312,
     actualPrice: 3800,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682126/30CM_LONG_1080_x_900_px_106_-_2025-10-05T212757.315_y5ja8l.png",
@@ -798,7 +798,7 @@ const products = [
   },
   {
     id: 98,
-    name: "2 INCH OUT\n(Box: 10PCS)",
+    name: "2 INCH OUT\n",
     price: 552,
     actualPrice: 1000,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682114/30CM_LONG_1080_x_900_px_107_-_2025-10-05T213122.272_iruq9t.png",
@@ -806,7 +806,7 @@ const products = [
   },
   {
     id: 99,
-    name: "3 INCH OUT\n(Box: 10PCS)",
+    name: "3 INCH OUT\n",
     price: 1104,
     actualPrice: 1500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682113/30CM_LONG_1080_x_900_px_108_-_2025-10-05T213227.076_fcy4ov.png",
@@ -814,7 +814,7 @@ const products = [
   },
   {
     id: 100,
-    name: "4 INCH OUT\n(Box: 10PCS)",
+    name: "4 INCH OUT\n",
     price: 1495,
     actualPrice: 1800,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682101/30CM_LONG_1080_x_900_px_109_-_2025-10-05T213302.746_p1d3qa.png",
@@ -822,7 +822,7 @@ const products = [
   },
   {
     id: 101,
-    name: "1000 WALA\n(Box: 10PCS)",
+    name: "1000 WALA\n",
     price: 322,
     actualPrice: 650,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682100/30CM_LONG_1080_x_900_px_110_-_2025-10-05T213513.599_kvf27z.png",
@@ -830,7 +830,7 @@ const products = [
   },
   {
     id: 102,
-    name: "2000 WALA\n(Box: 10PCS)",
+    name: "2000 WALA\n",
     price: 644,
     actualPrice: 850,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682088/30CM_LONG_1080_x_900_px_112_-_2025-10-05T213831.853_arbrxm.png",
@@ -838,7 +838,7 @@ const products = [
   },
   {
     id: 103,
-    name: "5K WALA\n(Box: 10PCS)",
+    name: "5K WALA\n",
     price: 1400,
     actualPrice: 2500,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682077/30CM_LONG_1080_x_900_px_113_-_2025-10-05T213926.735_af40bb.png",
@@ -846,7 +846,7 @@ const products = [
   },
   {
     id: 104,
-    name: "10K WALA\n(Box: 10PCS)",
+    name: "10K WALA\n",
     price: 2800,
     actualPrice: 7000,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682076/30CM_LONG_1080_x_900_px_114_-_2025-10-05T214043.948_xrhgnx.png",
@@ -854,7 +854,7 @@ const products = [
   },
   {
     id: 105,
-    name: "GUNS RING CAP\n(Box: 10PCS)",
+    name: "GUNS RING CAP\n",
     price: 69,
     actualPrice: 150,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682057/30CM_LONG_1080_x_900_px_115_-_2025-10-05T214130.884_tuvy7c.png",
@@ -862,7 +862,7 @@ const products = [
   },
   {
     id: 106,
-    name: "ROLL CAP GUN\n(Box: 10PCS)",
+    name: "ROLL CAP GUN\n",
     price: 62,
     actualPrice: 100,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682057/30CM_LONG_1080_x_900_px_116_-_2025-10-05T214210.070_esc39k.png",
@@ -870,7 +870,7 @@ const products = [
   },
   {
     id: 107,
-    name: "ROLLS CAPS (BOX)\n(Box: 10PCS)",
+    name: "ROLLS CAPS (BOX)\n",
     price: 99,
     actualPrice: 200,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682056/30CM_LONG_1080_x_900_px_117_-_2025-10-05T214307.517_x0yomf.png",
@@ -878,7 +878,7 @@ const products = [
   },
   {
     id: 108,
-    name: "RING CAPS (BOX)\n(Box: 10PCS)",
+    name: "RING CAPS (BOX)\n",
     price: 459,
     actualPrice: 1000,
     image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759682056/30CM_LONG_1080_x_900_px_118_-_2025-10-05T214409.988_yoe5sl.png",
