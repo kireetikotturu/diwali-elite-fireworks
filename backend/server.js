@@ -45,7 +45,7 @@ app.post("/api/coupons", async (req, res) => {
 
   try {
     const emailResp = await sendEmail({
-      to: "venombar122@gmail.com",
+      to: "elitefireworksindia@gmail.com",
       subject: "New Coupon Request",
       html: `<p>User requested coupon: <strong>${phone}</strong></p>`
     });
@@ -66,7 +66,7 @@ app.post("/api/order", async (req, res) => {
 
   try {
     const emailResp = await sendEmail({
-      to: "venombar122@gmail.com",
+      to: "elitefireworksindia@gmail.com",
       subject: `New Order Received: ${orderId}`,
       html: `
         <h2>New Order Placed</h2>
@@ -94,7 +94,7 @@ app.post("/api/contact", async (req, res) => {
 
   try {
     const emailResp = await sendEmail({
-      to: "venombar122@gmail.com",
+      to: "elitefireworksindia@gmail.com",
       subject: "New Contact Form Submission",
       html: `
         <h2>New Contact Form Submission</h2>
