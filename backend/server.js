@@ -8,9 +8,13 @@ const app = express();
 
 // Restrict CORS to your Netlify frontend for security
 app.use(cors({
-  origin: ["https://diwali-elite-fireworks.netlify.app"],
+  origin: [
+    "https://diwali-elite-fireworks.netlify.app",
+    "http://localhost:3000"
+  ],
   methods: ["GET", "POST"]
 }));
+
 
 app.use(bodyParser.json());
 
