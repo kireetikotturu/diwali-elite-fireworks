@@ -24,7 +24,7 @@ app.post("/api/coupons", async (req, res) => {
   try {
     await resend.emails.send({
       from: 'Diwali Elite Fireworks <onboarding@resend.dev>', // You can change this after verifying your domain with Resend
-      to: 'venombar122@gmail.com',
+      to: 'elitefireworksindia@gmail.com', // <-- CHANGED recipient email
       subject: 'New Coupon Request',
       html: `<p>User requested coupon: <strong>${phone}</strong></p>`
     });
@@ -46,7 +46,7 @@ app.post("/api/order", async (req, res) => {
   try {
     await resend.emails.send({
       from: 'Diwali Elite Fireworks <onboarding@resend.dev>',
-      to: 'venombar122@gmail.com',
+      to: 'elitefireworksindia@gmail.com', // <-- CHANGED recipient email
       subject: `New Order Received: ${orderId}`,
       html: `
         <h2>New Order Placed</h2>
@@ -75,7 +75,7 @@ app.post("/api/contact", async (req, res) => {
   try {
     await resend.emails.send({
       from: 'Diwali Elite Fireworks <onboarding@resend.dev>',
-      to: 'venombar122@gmail.com',
+      to: 'elitefireworksindia@gmail.com', // <-- CHANGED recipient email
       subject: 'New Contact Form Submission',
       html: `
         <h2>New Contact Form Submission</h2>
