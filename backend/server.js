@@ -29,12 +29,13 @@ app.post("/api/coupons", async (req, res) => {
   const { phone } = req.body;
 
   try {
-    await resend.emails.send({
+    const response = await resend.emails.send({
       from: 'Diwali Elite Fireworks <onboarding@resend.dev>', // Default Resend sender
       to: 'elitefireworksindia@gmail.com',
       subject: 'New Coupon Request',
       html: `<p>User requested coupon: <strong>${phone}</strong></p>`
     });
+    console.log("Resend API response [Coupon]:", response);
     res.json({ success: true });
   } catch (error) {
     console.error("Email send error [Coupon]:", error);
@@ -45,14 +46,15 @@ app.post("/api/coupons", async (req, res) => {
 // Order POST endpoint
 app.post("/api/order", async (req, res) => {
   console.log("Order request received:", req.body);
+
   const { orderId, name, phone, address, pincode, deliveryDate, cart, total } = req.body;
 
-  const cartItems = cart.map(
+  const cartItems = cart?.map(
     item => `<li>${item.name} (x${item.qty}) - ₹${item.price * item.qty}</li>`
-  ).join("");
+  ).join("") || "";
 
   try {
-    await resend.emails.send({
+    const response = await resend.emails.send({
       from: 'Diwali Elite Fireworks <onboarding@resend.dev>',
       to: 'elitefireworksindia@gmail.com',
       subject: `New Order Received: ${orderId}`,
@@ -69,6 +71,7 @@ app.post("/api/order", async (req, res) => {
         <ul>${cartItems}</ul>
       `
     });
+    console.log("Resend API response [Order]:", response);
     res.json({ success: true });
   } catch (error) {
     console.error("Email send error [Order]:", error);
@@ -82,7 +85,7 @@ app.post("/api/contact", async (req, res) => {
   const { name, phone, message } = req.body;
 
   try {
-    await resend.emails.send({
+    const response = await resend.emails.send({
       from: 'Diwali Elite Fireworks <onboarding@resend.dev>',
       to: 'elitefireworksindia@gmail.com',
       subject: 'New Contact Form Submission',
@@ -94,6 +97,7 @@ app.post("/api/contact", async (req, res) => {
         <p>${message}</p>
       `
     });
+    console.log("Resend API response [Contact]:", response);
     res.json({ success: true });
   } catch (error) {
     console.error("Email send error [Contact]:", error);
