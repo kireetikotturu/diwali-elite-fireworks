@@ -601,3 +601,219 @@
   from { opacity: 0; transform: translateY(28px);}
   to { opacity: 1; transform: translateY(0);}
 }
+
+
+
+
+
+
+/* ...your existing styles... */
+/* Combo Modal Styles */
+.combo-modal-backdrop {
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.22);
+  z-index: 10010;
+  display: flex; align-items: center; justify-content: center;
+}
+.combo-modal {
+  background: #fffbe7;
+  border-radius: 16px;
+  box-shadow: 0 8px 44px #c47c005c;
+  padding: 1.5rem 1.2rem 1.4rem 1.2rem;
+  min-width: 260px; max-width: 96vw;
+  min-height: 120px;
+  text-align: left;
+  position: relative;
+  z-index: 10012;
+  margin: 0 8px;
+  animation: comboModalFadeIn 0.23s cubic-bezier(.77,0,.18,1);
+}
+@keyframes comboModalFadeIn {
+  from { opacity: 0; transform: translateY(28px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.combo-modal-title {
+  font-size: 1.1em;
+  font-weight: 800;
+  color: #c47c00;
+  margin-bottom: 0.85rem;
+  text-align: center;
+  letter-spacing: 0.6px;
+}
+.combo-modal-list {
+  margin: 0 0 1.3rem 0; padding: 0 0 0 0.8em;
+  color: #6342a7;
+  font-size: 1.04em;
+  font-weight: 600;
+  line-height: 1.6;
+  list-style: none;
+}
+.combo-modal-list li {
+  margin-bottom: 0.44em;
+  font-size: 1.04em;
+  background: #ffd70022;
+  border-radius: 7px;
+  padding: 0.44em 1em 0.44em 0.5em;
+  box-shadow: 0 1px 6px #e040fb08;
+  display: flex;
+  align-items: center;
+}
+.combo-modal-close {
+  background: #ffd700;
+  color: #6342a7;
+  border: none;
+  border-radius: 9px;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 0.5em 1.3em;
+  cursor: pointer;
+  box-shadow: 0 2px 10px #e040fb12;
+  transition: background 0.14s, color 0.14s;
+  margin: 0 auto;
+  display: block;
+}
+.combo-modal-close:hover {
+  background: #e040fb;
+  color: #fffbe7;
+}
+
+/* Combo Modal Item Thumbnails */
+.combo-item-thumb {
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px #ffd70033;
+  margin-right: 14px;
+  border: 1.5px solid #ffd700;
+  background: #fff;
+  flex-shrink: 0;
+  transition: transform 0.14s;
+}
+.combo-item-thumb:hover {
+  transform: scale(1.09);
+}
+.combo-item-info {
+  display: flex;
+  align-items: center;
+  gap: 0.29em;
+  font-weight: 600;
+}
+.combo-item-qty {
+  color: #c47c00;
+  font-weight: 700;
+  margin-left: 4px;
+  font-size: 0.98em;
+}
+
+/* Combo product card row buttons */
+.shop-combo-btn-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.combo-btn,
+.combo-detail-btn {
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 0.97em;
+  padding: 0.43rem 0.97rem;
+  cursor: pointer;
+  transition: background 0.16s, color 0.16s, box-shadow 0.16s;
+  border: 1.5px solid #c47c00;
+  min-width: 120px;
+  margin: 0 0.08rem;
+}
+
+.combo-btn {
+  background: linear-gradient(90deg, #b17611 40%, #e032ff 100%);
+  color: white;
+  box-shadow: 0 2px 8px #ffd70022;
+  border: none;
+}
+.combo-btn.added,
+.combo-btn:active {
+  background: linear-gradient(90deg, #e040fb 20%, #c47c00 80%);
+  color: #fffbe7;
+  box-shadow: 0 4px 18px #ffd70033;
+}
+.combo-detail-btn {
+  background: #fffbe7;
+  color: #6342a7;
+  border: 1.5px solid #c47c00;
+  box-shadow: 0 2px 8px #ffd70012;
+}
+.combo-detail-btn:hover,
+.combo-detail-btn:focus {
+  background: #ffd700;
+  color: #e040fb;
+  box-shadow: 0 2px 16px #ffd70033;
+}
+
+/* Make combo card buttons stack on mobile, and bigger images in modal */
+@media (max-width: 700px) {
+  .shop-combo-btn-row {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+    margin-top: 0.5rem;
+  }
+  .combo-btn, .combo-detail-btn {
+    width: 100%;
+    min-width: 0;
+    font-size: 0.8em;
+  }
+  .combo-modal {
+    padding: 1.1rem 0.3rem 1.1rem 0.3rem;
+    min-width: 0;
+  }
+  .combo-modal-list li {
+    font-size: 0.8em;
+    padding: 0.38em 0.7em 0.38em 0.4em;
+  }
+  .combo-item-thumb {
+    width: 58px;
+    height: 58px;
+    margin-right: 10px;
+    border-radius: 8px;
+  }
+}
+
+
+/* ...other existing styles... */
+
+/* Modal scroll and larger images for mobile */
+.combo-modal-list.scrollable-modal-list {
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 0.8em;
+}
+@media (max-width: 700px) {
+  .combo-modal-list.scrollable-modal-list {
+    max-height: 65vw;
+    min-height: 160px;
+  }
+  .combo-item-thumb {
+    width: 72px;
+    height: 72px;
+    margin-right: 12px;
+    border-radius: 13px;
+  }
+}
+.combo-item-thumb {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #ffd70033;
+  margin-right: 14px;
+  border: 1.5px solid #ffd700;
+  background: #fff;
+  flex-shrink: 0;
+  transition: transform 0.14s;
+}
+/* ...rest of your Shop.css remains unchanged... */

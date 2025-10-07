@@ -2,23 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./Shop.css";
 import { useLocation } from "react-router-dom";
 
-// Cloudinary images for categories and products
-const categories = [
-  { name: "Sparklers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759383446/sparklers-c-image_oyw1st.jpg" },
-  { name: "Wheels/Buchakkar", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759386052/bhuchakkar-c-image_vaxxqi.png" },
-  { name: "Flower Pots", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759385749/flowerpot-c-image_poai45.png" },
-  { name: "Threads/Pencils", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759401227/Untitled_design_3_larfnm.png" },
-  { name: "Rockets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759396971/rockets-c-image_hgzqvd.png" },
-  { name: "Bombs", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759388414/bomb-c-image_x9scey.png" },
-  { name: "Lal Mirchi (Per Bundle)", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759391010/lalmirchi-c-image_qurouc.png" },
-  { name: "Mirchi Packets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759395609/mirchi-packets-image_qyvad3.jpg" },
-  { name: "Elite Fancy Series", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759386943/elitefancy-c-image_t2trdy.png" },
-  { name: "Shorts", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759397199/shorts-c-image_vwv2ji.png" },
-  { name: "Garland Crackers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759398165/Untitled_design_1_hrp6wk.png" },
-  { name: "Others", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759398909/Untitled_design_2_sd53ui.png" },
-  { name: "Combo Offers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg" }
-];
-
+// --- PRODUCTS DATA: Add new products here to make them available for combos and shop ---
 const products = [
   {
     id: 1,
@@ -909,8 +893,41 @@ const products = [
     category: "Combo Offers",
   }
 ];
+// --- COMBO DETAILS: Add/edit combos and items here ---
+// For each item: name (displayed), qty (displayed), lookup (must match start of product.name for image)
+const comboDetails = {
+  "Diwali Combo\nValue For Money Combo...": [
+    { name: "75CM ELECTRIC", qty: "2 packs", lookup: "75CM ELECTRIC" },
+    { name: "30CM ELECTRIC", qty: "5 packs", lookup: "30CM ELECTRIC" },
+    { name: "New Fancy Cracker", qty: "1 pc", lookup: "COLOR PINJORE (XL)" } // Example: ensure product exists above
+  ],
+  "Diwali Special Combo\nPower Pack...!": [
+    { name: "30CM ELECTRIC", qty: "6 packs", lookup: "30CM ELECTRIC" },
+    { name: "30CM CRACKLING", qty: "3 packs", lookup: "30CM CRACKLING" }
+  ],
+  "Diwali Elite Combo\nComplete Family Pack...": [
+    { name: "75CM ELECTRIC", qty: "4 packs", lookup: "75CM ELECTRIC" },
+    { name: "15CM RED", qty: "5 packs", lookup: "15CM RED" }
+  ]
+};
 
-// ✅ Automatically calculate offer percentage for all products
+// --- CATEGORIES ---
+const categories = [
+  { name: "Sparklers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759383446/sparklers-c-image_oyw1st.jpg" },
+  { name: "Wheels/Buchakkar", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759386052/bhuchakkar-c-image_vaxxqi.png" },
+  { name: "Flower Pots", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759385749/flowerpot-c-image_poai45.png" },
+  { name: "Threads/Pencils", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759401227/Untitled_design_3_larfnm.png" },
+  { name: "Rockets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759396971/rockets-c-image_hgzqvd.png" },
+  { name: "Bombs", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759388414/bomb-c-image_x9scey.png" },
+  { name: "Lal Mirchi (Per Bundle)", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759391010/lalmirchi-c-image_qurouc.png" },
+  { name: "Mirchi Packets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759395609/mirchi-packets-image_qyvad3.jpg" },
+  { name: "Elite Fancy Series", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759386943/elitefancy-c-image_t2trdy.png" },
+  { name: "Shorts", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759397199/shorts-c-image_vwv2ji.png" },
+  { name: "Garland Crackers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759398165/Untitled_design_1_hrp6wk.png" },
+  { name: "Others", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759398909/Untitled_design_2_sd53ui.png" },
+  { name: "Combo Offers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg" }
+];
+
 const productsWithOffers = products.map((p) => {
   const discount = ((p.actualPrice - p.price) / p.actualPrice) * 100;
   return {
@@ -924,20 +941,23 @@ const PROGRESS_COLOR = "#ffd700";
 function Shop({ cart, setCart }) {
   const location = useLocation();
 
-const [selectedCategory, setSelectedCategory] = useState(() => {
-  if (location?.state?.resetShop) return null;
-  return localStorage.getItem("selectedCategory") || null;
-});
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    if (location?.state?.resetShop) return null;
+    return localStorage.getItem("selectedCategory") || null;
+  });
   const [addedId, setAddedId] = useState(null);
   const addedTimeoutRef = useRef(null);
+  const [comboDetailOpen, setComboDetailOpen] = useState(false);
+  const [comboDetailItems, setComboDetailItems] = useState([]);
+  const [comboDetailTitle, setComboDetailTitle] = useState("");
+  const comboModalRef = useRef(null);
 
   // Loader state
   const [loadingImages, setLoadingImages] = useState(true);
   const [progress, setProgress] = useState(0);
   const [fadeIn, setFadeIn] = useState(false);
-  const [switching, setSwitching] = useState(false); // for transitions
+  const [switching, setSwitching] = useState(false);
 
-  // Preload images for categories and products (initial load and on category change)
   useEffect(() => {
     let isMounted = true;
     async function loadImages(srcArr) {
@@ -974,27 +994,20 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
         }, 340);
       }
     }
-
-    // On initial load: preload all
     if (selectedCategory === null) {
       loadImages([
         ...categories.map((cat) => cat.image),
         ...productsWithOffers.map((prod) => prod.image)
       ]);
     } else {
-      // On category select: preload only product images of that category
       const catSrcs = productsWithOffers
         .filter((product) => product.category === selectedCategory)
         .map((prod) => prod.image);
       loadImages(catSrcs);
     }
-
-    return () => {
-      isMounted = false;
-    };
+    return () => { isMounted = false; };
   }, [selectedCategory]);
 
-  // Persist selected category
   useEffect(() => {
     if (selectedCategory) {
       localStorage.setItem("selectedCategory", selectedCategory);
@@ -1003,7 +1016,6 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
     }
   }, [selectedCategory]);
 
-  // ✅ Handle hardware back button: go back to categories instead of home
   useEffect(() => {
     const handleBack = (event) => {
       if (selectedCategory) {
@@ -1062,10 +1074,32 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
     addedTimeoutRef.current = setTimeout(() => setAddedId(null), 700);
   };
 
-  // Filter products by selected category
   const filteredProducts = productsWithOffers
     .filter((product) => product.category === selectedCategory)
     .slice(0, 20);
+
+  const openComboDetail = (comboProduct) => {
+    setComboDetailTitle(comboProduct.name.replace(/\n/g, " ").replace(/\.\.\.$/, ''));
+    setComboDetailItems(comboDetails[comboProduct.name] || []);
+    setComboDetailOpen(true);
+    setTimeout(() => {
+      if (comboModalRef.current) {
+        comboModalRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 50);
+  };
+
+  const closeComboDetail = () => setComboDetailOpen(false);
+
+  // Find product image for combo item by lookup
+  const findProductImage = (lookup) => {
+    const prod = products.find(
+      p => p.name.trim().toLowerCase().startsWith(lookup.trim().toLowerCase())
+    );
+    return prod ? prod.image : null;
+  };
 
   const ShopLoader = () => (
     <div className="shop-loader-root">
@@ -1093,6 +1127,43 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
 
   return (
     <div className={`shop-root ${fadeClass} ${switchClass}`}>
+      {/* Combo Modal */}
+      {comboDetailOpen && (
+        <div className="combo-modal-backdrop" onClick={closeComboDetail}>
+          <div
+            className="combo-modal"
+            ref={comboModalRef}
+            onClick={e => e.stopPropagation()}
+          >
+            <h3 className="combo-modal-title">{comboDetailTitle}</h3>
+            <ul className="combo-modal-list scrollable-modal-list">
+              {comboDetailItems.length ? comboDetailItems.map((item, idx) => {
+                const img = findProductImage(item.lookup);
+                return (
+                  <li key={idx}>
+                    {img && (
+                      <img
+                        className="combo-item-thumb"
+                        src={img}
+                        alt={item.name}
+                        loading="lazy"
+                      />
+                    )}
+                    <span className="combo-item-info">
+                      <b>{item.name}</b>
+                      {item.qty ? <span className="combo-item-qty"> ({item.qty})</span> : ""}
+                    </span>
+                  </li>
+                );
+              }) : (
+                <li>No details available.</li>
+              )}
+            </ul>
+            <button className="combo-modal-close" onClick={closeComboDetail}>Close</button>
+          </div>
+        </div>
+      )}
+
       {!selectedCategory ? (
         <>
           <h2 className="shop-title">Shop by Product</h2>
@@ -1148,35 +1219,75 @@ const [selectedCategory, setSelectedCategory] = useState(() => {
           </div>
           <div className="shop-list">
             {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
-                <div className="shop-item shop-square-card" key={product.id}>
-                  <span className="shop-offer-badge">{product.offer}</span>
-                  <div className="shop-img-wrap-square">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="shop-item-img-square"
-                    />
-                  </div>
-                  <div className="shop-item-details">
-                    <h3 className="shop-item-name">{product.name}</h3>
-                    <div className="shop-item-prices">
-                      <span className="shop-item-actualprice">
-                        ₹{product.actualPrice}
-                      </span>
-                      <span className="shop-item-price">₹{product.price}</span>
+              filteredProducts.map((product) => {
+                if (
+                  selectedCategory === "Combo Offers" &&
+                  comboDetails[product.name]
+                ) {
+                  return (
+                    <div className="shop-item shop-square-card combo-shop-card" key={product.id}>
+                      <span className="shop-offer-badge">{product.offer}</span>
+                      <div className="shop-img-wrap-square">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="shop-item-img-square"
+                        />
+                      </div>
+                      <div className="shop-item-details">
+                        <h3 className="shop-item-name">{product.name}</h3>
+                        <div className="shop-item-prices">
+                          <span className="shop-item-actualprice">
+                            ₹{product.actualPrice}
+                          </span>
+                          <span className="shop-item-price">₹{product.price}</span>
+                        </div>
+                        <div className="shop-combo-btn-row">
+                          <button
+                            className={`shop-item-add combo-btn${addedId === product.id ? " added" : ""}`}
+                            onClick={() => addToCart(product)}
+                          >
+                            {addedId === product.id ? "Added!" : "Add to Cart"}
+                          </button>
+                          <button
+                            className="combo-detail-btn"
+                            onClick={() => openComboDetail(product)}
+                          >
+                            View Combo
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <button
-                      className={`shop-item-add${
-                        addedId === product.id ? " added" : ""
-                      }`}
-                      onClick={() => addToCart(product)}
-                    >
-                      {addedId === product.id ? "Added!" : "Add to Cart"}
-                    </button>
+                  );
+                }
+                return (
+                  <div className="shop-item shop-square-card" key={product.id}>
+                    <span className="shop-offer-badge">{product.offer}</span>
+                    <div className="shop-img-wrap-square">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="shop-item-img-square"
+                      />
+                    </div>
+                    <div className="shop-item-details">
+                      <h3 className="shop-item-name">{product.name}</h3>
+                      <div className="shop-item-prices">
+                        <span className="shop-item-actualprice">
+                          ₹{product.actualPrice}
+                        </span>
+                        <span className="shop-item-price">₹{product.price}</span>
+                      </div>
+                      <button
+                        className={`shop-item-add${addedId === product.id ? " added" : ""}`}
+                        onClick={() => addToCart(product)}
+                      >
+                        {addedId === product.id ? "Added!" : "Add to Cart"}
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             ) : (
               <div
                 style={{
