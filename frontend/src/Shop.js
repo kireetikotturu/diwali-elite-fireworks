@@ -913,19 +913,19 @@ const comboDetails = {
 
 // --- CATEGORIES ---
 const categories = [
-  { name: "Sparklers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759383446/sparklers-c-image_oyw1st.jpg" },
-  { name: "Wheels/Buchakkar", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759386052/bhuchakkar-c-image_vaxxqi.png" },
-  { name: "Flower Pots", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759385749/flowerpot-c-image_poai45.png" },
-  { name: "Threads/Pencils", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759401227/Untitled_design_3_larfnm.png" },
-  { name: "Rockets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759396971/rockets-c-image_hgzqvd.png" },
-  { name: "Bombs", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759388414/bomb-c-image_x9scey.png" },
-  { name: "Lal Mirchi (Per Bundle)", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759391010/lalmirchi-c-image_qurouc.png" },
-  { name: "Mirchi Packets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759395609/mirchi-packets-image_qyvad3.jpg" },
-  { name: "Elite Fancy Series", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759386943/elitefancy-c-image_t2trdy.png" },
-  { name: "Shorts", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759397199/shorts-c-image_vwv2ji.png" },
-  { name: "Garland Crackers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759398165/Untitled_design_1_hrp6wk.png" },
-  { name: "Others", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759398909/Untitled_design_2_sd53ui.png" },
-  { name: "Combo Offers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759057865/elitefancyseries_image1_gsw3ay.jpg" }
+  { name: "Sparklers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759986437/30CM_LONG_1080_x_900_px_-_2025-10-09T103611.374_t9gb0v.png" },
+  { name: "Wheels/Buchakkar", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759986603/30CM_LONG_1080_x_900_px_-_2025-10-09T103926.581_ar06ln.png" },
+  { name: "Flower Pots", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759986825/30CM_LONG_1080_x_900_px_-_2025-10-09T104300.914_glz0jj.png" },
+  { name: "Threads/Pencils", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759986868/30CM_LONG_1080_x_900_px_-_2025-10-09T104406.536_mi7lbq.png" },
+  { name: "Rockets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987021/30CM_LONG_1080_x_900_px_-_2025-10-09T104559.580_vnixjl.png" },
+  { name: "Bombs", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987015/30CM_LONG_1080_x_900_px_-_2025-10-09T104629.311_zlxfbu.png" },
+  { name: "Lal Mirchi (Per Bundle)", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987185/30CM_LONG_1080_x_900_px_-_2025-10-09T104749.131_dqawgz.png" },
+  { name: "Mirchi Packets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987452/30CM_LONG_1080_x_900_px_-_2025-10-09T105040.072_ebygi1.png" },
+  { name: "Elite Fancy Series", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987361/30CM_LONG_1080_x_900_px_-_2025-10-09T105134.479_cg9v7v.png" },
+  { name: "Shorts", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987361/30CM_LONG_1080_x_900_px_-_2025-10-09T105134.479_cg9v7v.png" },
+  { name: "Garland Crackers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759988045/30CM_LONG_1080_x_900_px_-_2025-10-09T110342.167_wiujft.png" },
+  { name: "Others", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759988229/30CM_LONG_1080_x_900_px_-_2025-10-09T110533.233_gicwqb.png" },
+  { name: "Combo Offers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759988238/30CM_LONG_1080_x_900_px_-_2025-10-09T110700.587_qftllb.png" }
 ];
 
 const productsWithOffers = products.map((p) => {
