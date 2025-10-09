@@ -994,12 +994,11 @@ function Shop({ cart, setCart }) {
         }, 340);
       }
     }
+    // --- OPTIMIZED: Only preload category images at first, not all product images ---
     if (selectedCategory === null) {
-      loadImages([
-        ...categories.map((cat) => cat.image),
-        ...productsWithOffers.map((prod) => prod.image)
-      ]);
+      loadImages(categories.map((cat) => cat.image));
     } else {
+      // On category select: preload only product images of that category
       const catSrcs = productsWithOffers
         .filter((product) => product.category === selectedCategory)
         .map((prod) => prod.image);
