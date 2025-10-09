@@ -893,13 +893,13 @@ const products = [
     category: "Combo Offers",
   }
 ];
+
 // --- COMBO DETAILS: Add/edit combos and items here ---
-// For each item: name (displayed), qty (displayed), lookup (must match start of product.name for image)
 const comboDetails = {
   "Diwali Combo\nValue For Money Combo...": [
     { name: "75CM ELECTRIC", qty: "2 packs", lookup: "75CM ELECTRIC" },
     { name: "30CM ELECTRIC", qty: "5 packs", lookup: "30CM ELECTRIC" },
-    { name: "New Fancy Cracker", qty: "1 pc", lookup: "COLOR PINJORE (XL)" } // Example: ensure product exists above
+    { name: "New Fancy Cracker", qty: "1 pc", lookup: "COLOR PINJORE (XL)" },
   ],
   "Diwali Special Combo\nPower Pack...!": [
     { name: "30CM ELECTRIC", qty: "6 packs", lookup: "30CM ELECTRIC" },
