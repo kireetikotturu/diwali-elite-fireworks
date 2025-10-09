@@ -545,7 +545,7 @@ const products = [
     name: "MEDIUM PARROT\n",
     price: 276,
     actualPrice: 400,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669974/30CM_LONG_1080_x_900_px_74_mfhejn.png",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669973/30CM_LONG_1080_x_900_px_75_ymmqtf.png",
     category: "Lal Mirchi (Per Bundle)",
   },
   {
@@ -553,7 +553,7 @@ const products = [
     name: "HULK\n",
     price: 294,
     actualPrice: 400,
-    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669973/30CM_LONG_1080_x_900_px_75_ymmqtf.png",
+    image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759669974/30CM_LONG_1080_x_900_px_74_mfhejn.png",
     category: "Lal Mirchi (Per Bundle)",
   },
   {
