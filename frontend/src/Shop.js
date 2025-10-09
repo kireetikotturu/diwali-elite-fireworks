@@ -922,7 +922,7 @@ const categories = [
   { name: "Lal Mirchi (Per Bundle)", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987185/30CM_LONG_1080_x_900_px_-_2025-10-09T104749.131_dqawgz.png" },
   { name: "Mirchi Packets", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987452/30CM_LONG_1080_x_900_px_-_2025-10-09T105040.072_ebygi1.png" },
   { name: "Elite Fancy Series", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987361/30CM_LONG_1080_x_900_px_-_2025-10-09T105134.479_cg9v7v.png" },
-  { name: "Shorts", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759987361/30CM_LONG_1080_x_900_px_-_2025-10-09T105134.479_cg9v7v.png" },
+  { name: "Shorts", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759988046/30CM_LONG_1080_x_900_px_-_2025-10-09T110248.560_f74gil.png" },
   { name: "Garland Crackers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759988045/30CM_LONG_1080_x_900_px_-_2025-10-09T110342.167_wiujft.png" },
   { name: "Others", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759988229/30CM_LONG_1080_x_900_px_-_2025-10-09T110533.233_gicwqb.png" },
   { name: "Combo Offers", image: "https://res.cloudinary.com/dlz2pxovx/image/upload/v1759988238/30CM_LONG_1080_x_900_px_-_2025-10-09T110700.587_qftllb.png" }
